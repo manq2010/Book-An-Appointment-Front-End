@@ -6,7 +6,8 @@ import { Navigate, useLocation } from 'react-router-dom';
 function PrivateRoute({ children }) {
   const loading = useSelector((state) => state.session.loading);
   const accessToken = useSelector((state) => state.session.accessToken);
-  const role = useSelector((state) => state.session.role);
+  const role = useSelector((state) => state.session.currentUser.role);
+
   const location = useLocation();
   const fromLocation = (location.state)?.from;
   const previousLocation = fromLocation || { pathname: '/' };

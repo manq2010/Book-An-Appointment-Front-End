@@ -1,6 +1,9 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import {
+  createUserWithEmailAndPassword, loginWithEmailAndPassword,
+  logoutUserWithToken, requestAccessTokenWithRefreshToken, getCurrentUser,
+} from '../../api/sessionAPI';
 /* eslint-disable no-param-reassign */
-
 
 function storeRefreshToken(token) {
   localStorage.setItem('refreshToken', token);
@@ -100,19 +103,19 @@ export const refreshAccessToken = createAsyncThunk(
 );
 
 const initialState = {
-  loading: false,
-  error: false,
-  errorMessages: [],
-  accessToken: undefined,
-  refreshToken: undefined,
-  expiresIn: undefined,
-  tokenType: undefined,
   currentUser: {
     id: undefined,
     email: undefined,
     role: undefined,
     createdAt: undefined,
   },
+  loading: true,
+  error: false,
+  errorMessages: [],
+  accessToken: undefined,
+  refreshToken: getRefreshToken(),
+  expiresIn: undefined,
+  tokenType: undefined,
 };
 
 const sessionSlice = createSlice({
@@ -174,7 +177,7 @@ const sessionSlice = createSlice({
         state.error = false;
         state.errorMessages = [];
       })
-      .addCase(loginUser.rejected, (state, action) => {
+      .addCase(loginUser.rejected, (state) => {
         state.loading = false;
         state.error = true;
         state.errorMessages = ['Invalid credentials. Did you enter them correctly?'];
@@ -200,7 +203,7 @@ const sessionSlice = createSlice({
         state.error = false;
         state.errorMessages = [];
       })
-      .addCase(refreshAccessToken.rejected, (state, action) => {
+      .addCase(refreshAccessToken.rejected, (state) => {
         state.loading = false;
         state.error = true;
       })
@@ -209,7 +212,7 @@ const sessionSlice = createSlice({
         state.error = false;
         state.errorMessages = [];
       })
-      .addCase(logoutUser.fulfilled, (state, action) => {
+      .addCase(logoutUser.fulfilled, (state) => {
         state.currentUser = {
           id: undefined,
           email: undefined,

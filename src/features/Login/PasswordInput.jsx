@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { OutlinedInput, InputAdornment, IconButton } from '@material-ui/core';
-import { Visibility, VisibilityOff } from '@material-ui/icons';
+import { OutlinedInput, InputAdornment, IconButton } from '@mui/material';
+import { Visibility, VisibilityOff } from '@mui/icons-material';
 
 function PasswordInput({ inputRef }) {
   const [showPassword, setShowPassword] = useState(false);
@@ -21,7 +21,7 @@ function PasswordInput({ inputRef }) {
             {showPassword ? <Visibility /> : <VisibilityOff />}
           </IconButton>
         </InputAdornment>
-      )}
+  )}
     />
   );
 }

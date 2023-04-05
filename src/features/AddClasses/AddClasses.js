@@ -1,7 +1,26 @@
 import React, { useEffect, useState, useCallback } from 'react';
+import styled from 'styled-components';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchClasses, addClass } from './addClassesSlice';
 
+const Section = styled.section`
+
+table {
+  margin-top: 1rem;
+  width: 100%;
+  text-align: left;
+
+  thead {
+    color: var(--secondary);
+  }
+
+  tr:nth-of-type(even) {
+      background-color: var(--secondary-tint);
+}
+
+}
+
+`;
 const AddClasses = () => {
 //  Get greetings from Redux store:
 //   const classItems = useSelector((state) => state.addClassesReducer);
@@ -23,29 +42,26 @@ const AddClasses = () => {
       <td>{classItem.name}</td>
       <td>{classItem.description}</td>
       <td>{classItem.price}</td>
-      <td><button type="button">Edit</button></td>
     </tr>
   );
 
   let content;
 
   if (classesStatus === 'succeeded') {
-    // content = classItems.map((classItem) => newClassList(classItem));
-    content = (
+    content = classItems.length > 0 ? (
       <table>
         <thead>
           <tr>
             <th>Name</th>
             <th>Description</th>
             <th>Price</th>
-            <th>Action</th>
           </tr>
         </thead>
         <tbody>
           {classItems.map((classItem) => newClassTable(classItem))}
         </tbody>
       </table>
-    );
+    ) : ('');
   } else if (classesStatus === 'failed') {
     content = (
       <>
@@ -96,9 +112,10 @@ const AddClasses = () => {
   [values, dispatch]);
 
   return (
-    <section>
+    <Section>
       <div>
         <form onSubmit={handleSubmit}>
+
           <input
             type="text"
             name="name"
@@ -107,6 +124,7 @@ const AddClasses = () => {
             placeholder="Name"
             onChange={handleChange}
           />
+          <br />
           <input
             type="text"
             name="description"
@@ -116,6 +134,7 @@ const AddClasses = () => {
             placeholder="description"
             onChange={handleChange}
           />
+          <br />
           <input
             type="text"
             name="photo"
@@ -125,15 +144,17 @@ const AddClasses = () => {
             placeholder="photoUrl"
             onChange={handleChange}
           />
+          <br />
           <input
             type="number"
             name="price"
-            value={values.price || null}
+            value={values.price || ''}
             id="classItemId"
             required
             placeholder="price"
             onChange={handleChange}
           />
+          <br />
           <input type="submit" value="Add Class" />
         </form>
       </div>
@@ -141,7 +162,7 @@ const AddClasses = () => {
         {content}
       </div>
 
-    </section>
+    </Section>
   );
 };
 

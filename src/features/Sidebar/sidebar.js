@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import Side from './side';
 
@@ -8,40 +8,23 @@ const SideWrapper = styled.ul`
   flex-direction: column;
   align-items: start;
   justify-content: center;
-  border-right: 1px solid grey;
+  border-right: 1px solid var(--secondary);
   margin: 0;
   padding: 0;
   list-style: none;
   height: 100vh;
 
   li {
-    margin-right: 10px;
     padding: 10px;
     font-size: 18px;
-    /* font-family: ; */
     line-height: 17px
-
-/*     
-    &:last-of-type {
-        margin-bottom: 10px;
-    } */
-    
-    &:hover {
-      transform: translateX(-3px);
-    }
+    list-style: none;
 
     .links-details {
         display: inline-block;
-    }
-  
-    .link-item{
-      &:hover,
-      &:focus {
-        transform: translateX(-3px);
-      }
+        width: 9rem;
     }
   }
-
 `;
 
 const Sidebar = () => {
@@ -73,21 +56,31 @@ const Sidebar = () => {
     },
   ];
 
+  const navLinkStyles = ({ isActive }) => ({
+    // fontWeight: isActive ? 'bold' : 'bold',
+    color: isActive ? 'var(--white)' : 'var(--secondary)',
+    backgroundColor: isActive ? 'var(--tertiary)' : '',
+    padding: isActive ? '0.5rem' : '0',
+    // borderRadius: isActive ? '0.2rem' : '0',
+    // width: isActive ? '3rem' : '0',
+  });
+
   const content = (
     <>
       {links
   && links.map((link) => (
     <li key={link.id}>
-      <Link
+      <NavLink
+        style={navLinkStyles}
+        data-testid={link.text}
         to={link.path}
-        aria-label={link.text}
         rel="noreferrer"
         className="link-item"
       >
         <span className="links-details">
           {link.text}
         </span>
-      </Link>
+      </NavLink>
     </li>
   ))}
     </>

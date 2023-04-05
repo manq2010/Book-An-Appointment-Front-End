@@ -6,8 +6,8 @@ import Navbar from '../features/Navbar/navbar';
 
 const Layout = ({ children }) => (
   <div id="content">
-    <Navbar />
     <Sidebar />
+    <Navbar />
     {children}
     {/* <Footer /> */}
   </div>

@@ -5,7 +5,7 @@ import styled from 'styled-components';
 const SideBarWrapper = styled.div`
 
   position: fixed;
-  /* display: none; */
+  display: none;
   color: var(--tertiary-light);
   left: ${(props) => (props.orientation === 'left' ? '0' : 'auto')};
 

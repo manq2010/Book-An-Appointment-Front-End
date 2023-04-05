@@ -154,7 +154,7 @@ const sessionSlice = createSlice({
       .addCase(signUpUser.rejected, (state, action) => {
         state.loading = false;
         state.error = true;
-        state.errorMessages = action.payload.errors;
+        state.errorMessages = action.payload.errors.email;
       })
       .addCase(loginUser.pending, (state) => {
         state.loading = true;

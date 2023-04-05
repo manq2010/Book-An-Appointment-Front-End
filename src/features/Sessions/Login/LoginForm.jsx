@@ -4,7 +4,7 @@ import {
   FormControl, FormGroup, InputLabel,
 } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { loginUser, resetErrorState } from '../sessionSlice';
 import PasswordInput from '../FormHelpers/PasswordInput';
 import EmailInput from '../FormHelpers/EmailInput';
@@ -15,14 +15,14 @@ function LoginForm() {
   const passwordRef = useRef();
   const loading = false;
   const [errors, setErrors] = useState([]);
-  let errorMessages = [];
+  const errorMessages = useSelector((state) => state.session.errorMessages);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   useEffect(() => {
     emailRef?.current?.focus();
     if (errorMessages.length > 0) {
-      errorMessages = [];
+      
       setErrors(errorMessages);
       dispatch(resetErrorState());
     }

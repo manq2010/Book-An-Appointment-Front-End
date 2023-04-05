@@ -11,6 +11,7 @@ import ErrorMessage from '../FormHelpers/ErrorMessage';
 function SignUpForm() {
   const emailRef = useRef();
   const passwordRef = useRef();
+  const passwordConfirmationRef = useRef();
   const usernameRef = useRef();
   const loading = false;
   const [errors, setErrors] = useState([]);
@@ -30,10 +31,15 @@ function SignUpForm() {
     event.preventDefault();
     setErrors([]);
     if (emailRef?.current === undefined
-    || emailRef.current.value === ''
-    || passwordRef?.current === undefined
-    || passwordRef.current.value === '') {
+      || emailRef.current.value === ''
+      || passwordRef?.current === undefined
+      || passwordRef.current.value === ''
+      || passwordConfirmationRef?.current === undefined
+      || passwordConfirmationRef.current.value === '') {
       return setErrors(['Please fill out all fields']);
+    }
+    if (passwordRef.current.value !== passwordConfirmationRef.current.value) {
+      return setErrors(['Passwords do not match']);
     }
     const payload = {
       username: usernameRef.current.value,
@@ -79,7 +85,7 @@ function SignUpForm() {
         <FormGroup row id="password-confirmation-group" sx={{ marginTop: '1em' }}>
           <FormControl fullWidth>
             <InputLabel required htmlFor="password-confirmation" id="password-confirmation-label">Password Confirmation</InputLabel>
-            <PasswordInput inputRef={passwordRef} type="password-confirmation" />
+            <PasswordInput inputRef={passwordConfirmationRef} type="password-confirmation" />
           </FormControl>
         </FormGroup>
         <FormGroup row id="submit-group" sx={{ marginTop: '1em' }}>

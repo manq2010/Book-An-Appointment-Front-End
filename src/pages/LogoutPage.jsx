@@ -13,7 +13,7 @@ function LogoutPage() {
       dispatch(logoutUser(refreshToken));
     }
     navigate('/login');
-  }, []);
+  }, [dispatch, navigate, refreshToken]);
 
   return (
     <div>Logout</div>

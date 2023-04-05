@@ -6,7 +6,7 @@ import addClassesReducer from './AddClasses/addClassesSlice';
 const store = configureStore({
   reducer: {
     session: sessionReducer,
-    addClasses: addClassesReducer,
+    addClassesReducer,
   },
 });
 

@@ -14,12 +14,13 @@ function PersistLogin() {
       try {
         dispatch(refreshAccessToken(refreshToken));
       } catch (error) {
-        console.log(error);
+        Error(error);
       }
     }
     if (!accessToken) {
       verifyRefreshToken();
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [accessToken, refreshToken]);
 
   return (

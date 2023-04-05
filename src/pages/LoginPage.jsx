@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import {
   Box, Card, CardActions, CardContent, Container, Divider, Typography,
 } from '@mui/material';
-import LoginForm from '../features/Login/LoginForm';
+import LoginForm from '../features/Sessions/Login/LoginForm';
 
 function LoginPage() {
   return (

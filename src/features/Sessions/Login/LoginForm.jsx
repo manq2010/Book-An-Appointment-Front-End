@@ -4,9 +4,9 @@ import {
   FormControl, FormGroup, InputLabel,
 } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-import PasswordInput from './PasswordInput';
-import EmailInput from './EmailInput';
-import ErrorMessage from './ErrorMessage';
+import PasswordInput from '../Formhelpers/PasswordInput';
+import EmailInput from '../Formhelpers/EmailInput';
+import ErrorMessage from '../Formhelpers/ErrorMessage';
 
 function LoginForm() {
   const emailRef = useRef();

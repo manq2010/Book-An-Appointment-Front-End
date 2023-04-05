@@ -1,9 +1,12 @@
 import React from 'react';
+import Layout from '../layout/Layout';
 
 const ReservationPage = () => (
-  <div>
-    <h1>ReservationPage</h1>
-  </div>
+  <Layout>
+    <main>
+      <h1>ReservationPage</h1>
+    </main>
+  </Layout>
 );
 
 export default ReservationPage;

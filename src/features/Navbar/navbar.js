@@ -3,7 +3,8 @@ import { NavLink, Outlet } from 'react-router-dom';
 import styled from 'styled-components';
 
 const NavBar = styled.nav`
-display: flex;
+display: none;
+/* display: flex; */
 flex-direction: row;
 justify-content: space-between;
 height: 5rem;

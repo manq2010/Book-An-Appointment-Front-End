@@ -4,9 +4,9 @@ import {
   FormControl, FormGroup, InputLabel,
 } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-import PasswordInput from '../Formhelpers/PasswordInput';
-import EmailInput from '../Formhelpers/EmailInput';
-import ErrorMessage from '../Formhelpers/ErrorMessage';
+import PasswordInput from '../FormHelpers/PasswordInput';
+import EmailInput from '../FormHelpers/EmailInput';
+import ErrorMessage from '../FormHelpers/ErrorMessage';
 
 function LoginForm() {
   const emailRef = useRef();
@@ -65,7 +65,7 @@ function LoginForm() {
         <FormGroup row id="password-group" sx={{ marginTop: '1em' }}>
           <FormControl fullWidth>
             <InputLabel required htmlFor="password" id="password-label">Password</InputLabel>
-            <PasswordInput inputRef={passwordRef} />
+            <PasswordInput inputRef={passwordRef} type="password" />
           </FormControl>
         </FormGroup>
         <FormGroup row id="submit-group" sx={{ marginTop: '1em' }}>

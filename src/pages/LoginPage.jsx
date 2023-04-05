@@ -24,7 +24,7 @@ function LoginPage() {
               <Typography variant="body2" color="text.secondary" align="center">
                 <Link to="/forgot-password">Forgot Password?</Link>
               </Typography>
-              <Link to="/signup">Create an Account!</Link>
+              <Link to="/sign-up">Create an Account!</Link>
             </Box>
           </CardActions>
         </Card>

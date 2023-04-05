@@ -15,19 +15,22 @@ import RemoveClassesPage from './pages/RemoveClassesPage';
 import LoginPage from './pages/LoginPage';
 import SignUpPage from './pages/SignUpPage';
 import LogoutPage from './pages/LogoutPage';
+import PersistLogin from './features/Sessions/PersistLogin/PersistLogin';
 
 const AppRoutes = () => (
   <Routes>
     <Route path="/" element={<Navbar />}>
-      <Route exact path="/" element={<MainPage />} />
-      <Route exact path="/details/:symbol" element={<DetailsPage />} />
-      <Route exact path="/reservation" element={<ReservationPage />} />
-      <Route exact path="/reservations" element={<ReservationsPage />} />
-      <Route exact path="/add-classes" element={<AddClassesPage />} />
-      <Route exact path="/remove-classes" element={<RemoveClassesPage />} />
-      <Route exact path="/login" element={<LoginPage />} />
-      <Route exact path="/sign-up" element={<SignUpPage />} />
-      <Route exact path="/logout" element={<LogoutPage />} />
+      <Route element={<PersistLogin />}>
+        <Route exact path="/" element={<MainPage />} />
+        <Route exact path="/details/:symbol" element={<DetailsPage />} />
+        <Route exact path="/reservation" element={<ReservationPage />} />
+        <Route exact path="/reservations" element={<ReservationsPage />} />
+        <Route exact path="/add-classes" element={<AddClassesPage />} />
+        <Route exact path="/remove-classes" element={<RemoveClassesPage />} />
+        <Route exact path="/login" element={<LoginPage />} />
+        <Route exact path="/sign-up" element={<SignUpPage />} />
+        <Route exact path="/logout" element={<LogoutPage />} />
+      </Route>
     </Route>
     <Route path="*" element={<NotFoundPage />} />
   </Routes>

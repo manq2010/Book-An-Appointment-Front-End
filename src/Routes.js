@@ -14,6 +14,7 @@ import AddClassesPage from './pages/AddClassesPage';
 import RemoveClassesPage from './pages/RemoveClassesPage';
 import LoginPage from './pages/LoginPage';
 import SignUpPage from './pages/SignUpPage';
+import LogoutPage from './pages/LogoutPage';
 
 const AppRoutes = () => (
   <Routes>
@@ -26,6 +27,7 @@ const AppRoutes = () => (
       <Route exact path="/remove-classes" element={<RemoveClassesPage />} />
       <Route exact path="/login" element={<LoginPage />} />
       <Route exact path="/sign-up" element={<SignUpPage />} />
+      <Route exact path="/logout" element={<LogoutPage />} />
     </Route>
     <Route path="*" element={<NotFoundPage />} />
   </Routes>

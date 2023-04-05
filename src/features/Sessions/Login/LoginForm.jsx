@@ -4,6 +4,8 @@ import {
   FormControl, FormGroup, InputLabel,
 } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { loginUser, resetErrorState } from '../sessionSlice';
 import PasswordInput from '../FormHelpers/PasswordInput';
 import EmailInput from '../FormHelpers/EmailInput';
 import ErrorMessage from '../FormHelpers/ErrorMessage';
@@ -15,17 +17,18 @@ function LoginForm() {
   const [errors, setErrors] = useState([]);
   let errorMessages = [];
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     emailRef?.current?.focus();
     if (errorMessages.length > 0) {
       errorMessages = [];
-      // setErrors(errorMessages);
-      // dispatch(resetErrorState());
+      setErrors(errorMessages);
+      dispatch(resetErrorState());
     }
   }, []);
   // eslint-disable-next-line consistent-return
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
     setErrors([]);
     if (emailRef?.current === undefined
@@ -38,8 +41,9 @@ function LoginForm() {
       email: emailRef.current.value,
       password: passwordRef.current.value,
     };
-    // const response = await dispatch(loginUser(payload)) as any;
-    const response = ['Oops, something went wrong'];
+
+    const response = await dispatch(loginUser(payload));
+
     console.log(response);
     if (errorMessages.length === 0) {
       navigate('/');

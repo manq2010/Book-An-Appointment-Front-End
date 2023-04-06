@@ -23,6 +23,7 @@ export const signUpUser = createAsyncThunk(
     const response = await createUserWithEmailAndPassword(
       payload.email,
       payload.password,
+      payload.username,
     );
     if (response.errors) {
       // The value we return becomes the `rejected` action payload
@@ -153,7 +154,7 @@ const sessionSlice = createSlice({
       .addCase(signUpUser.rejected, (state, action) => {
         state.loading = false;
         state.error = true;
-        state.errorMessages = action.payload.errors.email;
+        state.errorMessages = action.payload.errors;
       })
       .addCase(loginUser.pending, (state) => {
         state.loading = true;

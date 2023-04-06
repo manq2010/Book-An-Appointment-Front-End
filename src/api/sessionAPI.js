@@ -5,19 +5,16 @@ const SIGNUP_URL = '/users';
 const LOGOUT_URL = '/oauth/revoke';
 const CURRENT_USER_URL = '/users/me';
 
-const CLIENT_ID = 'y6XykCBBwNYKC5pAzuPHiCf2EBHFvWDxB8PmvixG80c';
-const CLIENT_SECRET = 'J2eEpuQ7bL9czfC3IYjFT8C5pReqtskj3x8EbHTtLDI';
-
 export async function createUserWithEmailAndPassword(
   email,
   password,
   username,
 ) {
   const data = {
-    username,
     email,
     password,
-    client_id: CLIENT_ID,
+    client_id: process.env.REACT_APP_CLIENT_ID,
+    username,
   };
 
   return axios
@@ -34,8 +31,8 @@ export async function loginWithEmailAndPassword(
     grant_type: 'password',
     email,
     password,
-    client_id: CLIENT_ID,
-    client_secret: CLIENT_SECRET,
+    client_id: process.env.REACT_APP_CLIENT_ID,
+    client_secret: process.env.REACT_APP_CLIENT_SECRET,
   };
 
   return axios
@@ -47,8 +44,8 @@ export async function loginWithEmailAndPassword(
 export async function logoutUserWithToken(token) {
   const data = {
     token,
-    client_id: CLIENT_ID,
-    client_secret: CLIENT_SECRET,
+    client_id: process.env.REACT_APP_CLIENT_ID,
+    client_secret: process.env.REACT_APP_CLIENT_SECRET,
   };
 
   return axios
@@ -61,8 +58,8 @@ export async function requestAccessTokenWithRefreshToken(refreshToken) {
   const data = {
     grant_type: 'refresh_token',
     refresh_token: refreshToken,
-    client_id: CLIENT_ID,
-    client_secret: CLIENT_SECRET,
+    client_id: process.env.REACT_APP_CLIENT_ID,
+    client_secret: process.env.REACT_APP_CLIENT_SECRET,
   };
 
   return axios

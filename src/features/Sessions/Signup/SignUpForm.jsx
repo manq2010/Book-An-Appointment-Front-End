@@ -37,6 +37,8 @@ function SignUpForm() {
       || emailRef.current.value === ''
       || passwordRef?.current === undefined
       || passwordRef.current.value === ''
+      || usernameRef?.current === undefined
+      || usernameRef.current.value === ''
       || passwordConfirmationRef?.current === undefined
       || passwordConfirmationRef.current.value === '') {
       return setErrors(['Please fill out all fields']);

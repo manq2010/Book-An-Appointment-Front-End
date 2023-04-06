@@ -35,6 +35,8 @@ const AddClasses = () => {
   const classesStatus = useSelector((state) => state.addClassesReducer.status);
   const error = useSelector((state) => state.addClassesReducer.error);
 
+  console.log('TTTTTTTTTTT', accessToken);
+
   // Prepare Redux dispatch method:
   const dispatch = useDispatch();
 
@@ -113,8 +115,9 @@ const AddClasses = () => {
         mentorName,
         duration,
         id: Date.now(),
+        accessToken,
       };
-      await dispatch(addClass(classArray, accessToken));
+      await dispatch(addClass(classArray));
       await dispatch(fetchClasses(accessToken));
       setValues('');
     }

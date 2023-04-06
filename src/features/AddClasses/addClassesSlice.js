@@ -1,6 +1,7 @@
 /* eslint-disable no-param-reassign */
 // Import createSlice() from Redux toolkit:
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+// import { useSelector } from 'react-redux';
 import axios from '../../api/axios';
 
 // Initial state for Redux store:
@@ -30,13 +31,13 @@ export const fetchClasses = createAsyncThunk(
 
 export const addClass = createAsyncThunk(
   'classes/addClass',
-  async (classItem, accessToken) => {
+  async (classItem) => {
     const config = {
       headers: {
-        Authorization: `Bearer ${accessToken}`,
+        Authorization: `Bearer ${classItem.accessToken}`,
       },
     };
-    await axios.post('/items', config,
+    await axios.post('items',
       {
         name: classItem.name,
         description: classItem.description,
@@ -44,7 +45,8 @@ export const addClass = createAsyncThunk(
         price: classItem.price,
         mentor_name: classItem.mentorName,
         duration: classItem.duration,
-      });
+      },
+      config);
     return classItem;
   },
 );

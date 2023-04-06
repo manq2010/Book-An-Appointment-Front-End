@@ -32,7 +32,7 @@ function SignUpPage() {
             <Box>
               Already have an account?
               {' '}
-              <Link to="/login">Login!</Link>
+              <Link to="/login" style={{ color: 'green' }}>Login!</Link>
             </Box>
           </CardActions>
         </Card>

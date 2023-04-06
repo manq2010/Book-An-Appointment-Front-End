@@ -70,7 +70,7 @@ function SignUpForm() {
         <FormGroup row id="username-group" sx={{ marginTop: '1em' }}>
           <FormControl fullWidth>
             <InputLabel required htmlFor="username" id="username-label">Username</InputLabel>
-            <Input id="username" type="text" inputRef={usernameRef} />
+            <Input id="username" type="text" color="success" inputRef={usernameRef} />
           </FormControl>
         </FormGroup>
         <FormGroup row id="email-group" sx={{ marginTop: '1em' }}>
@@ -96,7 +96,7 @@ function SignUpForm() {
             <Button
               disabled={loading}
               variant="contained"
-              color="primary"
+              color="success"
               type="submit"
               id="submit-button"
             >

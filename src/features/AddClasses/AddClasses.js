@@ -5,6 +5,12 @@ import { fetchClasses, addClass } from './addClassesSlice';
 
 const Section = styled.section`
 
+.item-heading {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
 table {
   margin-top: 1rem;
   width: 100%;
@@ -49,18 +55,21 @@ const AddClasses = () => {
 
   if (classesStatus === 'succeeded') {
     content = classItems.length > 0 ? (
-      <table>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Price</th>
-          </tr>
-        </thead>
-        <tbody>
-          {classItems.map((classItem) => newClassTable(classItem))}
-        </tbody>
-      </table>
+      <>
+        <h3 className="item-heading">List of my current classes</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Description</th>
+              <th>Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            {classItems.map((classItem) => newClassTable(classItem))}
+          </tbody>
+        </table>
+      </>
     ) : ('');
   } else if (classesStatus === 'failed') {
     content = (

@@ -10,6 +10,7 @@ const variables = css`
 
 // handle secondary color - darker
 --secondary: #272727;
+--secondary-light: #3d3d3d;
 --secondary-tint: #d4d4d4;
 
 

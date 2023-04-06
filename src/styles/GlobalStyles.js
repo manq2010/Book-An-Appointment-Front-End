@@ -7,45 +7,12 @@ html {
   box-sizing: border-box;
   scroll-behavior: smooth;
   width: 100%;
-
-  /* handle scrollbar */
-  scrollbar-width: thin;
-  scrollbar-color: var(--tertiary-dark) var(--primary);
 }
 
 *,
 *:before,
 *:after {
   box-sizing: inherit;
-}
-
-::selection {
-  background-color: var(--primary-lightest);
-  color: var(--tertiary-lightest);
-}
-
-/* handle default focus */
-:focus {
-  outline: 2px solid var(--secondary);
-  outline-offset: 3px;
-}
-
-:focus:not {
-  outline: none;
-  outline-offset: 0px;
-}
-
-/* handle scrollbar */
-::-webkit-scrollbar {
-  width: 1rem;
-}
-::-webkit-scrollbar-track {
-  background: var(--primary);
-}
-::-webkit-scrollbar-thumb {
-  background-color: var(--tertiary-dark);
-  border: 2px solid var(--primary);
-  border-radius: 12px;
 }
 
 body {
@@ -106,7 +73,7 @@ h5,
 h6 {
   margin: 0 0 10px 0;
   font-weight: 600;
-  color: var(--secondary-tint);
+  color: var(--secondary-light);
   line-height: 1.1;
 }
 

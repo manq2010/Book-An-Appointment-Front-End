@@ -1,8 +1,10 @@
 import React from 'react';
+import Main from '../features/Main/main';
+import '../styles/main.css';
 
 const MainPage = () => (
   <div>
-    <h1>Main Page</h1>
+    <Main />
   </div>
 );
 

@@ -35,8 +35,6 @@ const AddClasses = () => {
   const classesStatus = useSelector((state) => state.addClassesReducer.status);
   const error = useSelector((state) => state.addClassesReducer.error);
 
-  console.log('TTTTTTTTTTT', accessToken);
-
   // Prepare Redux dispatch method:
   const dispatch = useDispatch();
 

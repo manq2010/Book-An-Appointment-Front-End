@@ -21,9 +21,6 @@ function LoginPage() {
           <Divider light={false} />
           <CardActions sx={{ marginTop: '1em', justifyContent: 'center' }} disableSpacing>
             <Box>
-              <Typography variant="body2" color="text.secondary" align="center">
-                <Link to="/forgot-password">Forgot Password?</Link>
-              </Typography>
               <Link to="/sign-up">Create an Account!</Link>
             </Box>
           </CardActions>

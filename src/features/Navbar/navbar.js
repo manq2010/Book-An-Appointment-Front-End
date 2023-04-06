@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink, Outlet } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 const NavBar = styled.nav`
@@ -8,7 +8,12 @@ flex-direction: row;
 justify-content: space-between;
 height: 5rem;
 align-items: center;
-border-bottom: 1px solid gray
+border-bottom: 1px solid gray;
+
+@media (min-width: 768px) {
+  display: none;
+  }
+
 `;
 
 const MenuNavUL = styled.ul`
@@ -16,7 +21,7 @@ const MenuNavUL = styled.ul`
   position: relative;
   color: #121212;
   display: flex;
-  gap: 1rem;
+  gap: 0.5rem;
   margin-top: 0;
   align-items: center;
   justify-content: space-between;
@@ -24,7 +29,7 @@ const MenuNavUL = styled.ul`
   font-family: "Montserrat",sans-serif;
   font-size: .813rem;
   letter-spacing: 1.9px;
-  margin-right: 5rem;
+  /* margin-right: 5rem; */
 `;
 
 const MenuLI = styled.li`
@@ -72,20 +77,17 @@ const Navbar = () => {
   });
 
   return (
-    <>
-      <NavBar>
-        <MenuNavUL>
-          {links.map((link) => (
-            <MenuLI key={link.id} aria-hidden="true">
-              <NavLink style={navLinkStyles} data-testid={link.text} to={link.path}>
-                {link.text}
-              </NavLink>
-            </MenuLI>
-          ))}
-        </MenuNavUL>
-      </NavBar>
-      <Outlet />
-    </>
+    <NavBar>
+      <MenuNavUL>
+        {links.map((link) => (
+          <MenuLI key={link.id} aria-hidden="true">
+            <NavLink style={navLinkStyles} data-testid={link.text} to={link.path}>
+              {link.text}
+            </NavLink>
+          </MenuLI>
+        ))}
+      </MenuNavUL>
+    </NavBar>
   );
 };
 

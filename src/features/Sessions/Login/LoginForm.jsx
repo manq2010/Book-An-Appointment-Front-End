@@ -75,13 +75,13 @@ function LoginForm() {
             <Button
               disabled={loading}
               variant="contained"
-              color="primary"
+              color="success"
               type="submit"
               id="submit-button"
             >
               Login
-
             </Button>
+
           </FormControl>
         </FormGroup>
       </form>

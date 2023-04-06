@@ -30,6 +30,7 @@ table {
 const AddClasses = () => {
 //  Get greetings from Redux store:
 //   const classItems = useSelector((state) => state.addClassesReducer);
+  const accessToken = useSelector((state) => state.session.accessToken);
   const classItems = useSelector((state) => state.addClassesReducer.classes);
   const classesStatus = useSelector((state) => state.addClassesReducer.status);
   const error = useSelector((state) => state.addClassesReducer.error);
@@ -39,7 +40,7 @@ const AddClasses = () => {
 
   useEffect(() => {
     if (classesStatus === 'idle') {
-      dispatch(fetchClasses());
+      dispatch(fetchClasses(accessToken));
     }
   }, [classesStatus, dispatch]);
 
@@ -113,8 +114,8 @@ const AddClasses = () => {
         duration,
         id: Date.now(),
       };
-      await dispatch(addClass(classArray));
-      await dispatch(fetchClasses());
+      await dispatch(addClass(classArray, accessToken));
+      await dispatch(fetchClasses(accessToken));
       setValues('');
     }
   },

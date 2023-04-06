@@ -3,6 +3,9 @@ import variables from './variables';
 
 const GlobalStyle = createGlobalStyle`
 ${variables}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600&display=swap');
+
 html {
   box-sizing: border-box;
   scroll-behavior: smooth;
@@ -24,7 +27,7 @@ body {
   margin: 0;
   font-size: var(--fs-l);
   line-height: 1.2;
-  font-family: var(--font-main-family);
+  font-family: 'Poppins', sans-serif;
   
   @media (min-width: 768){
     font-size:  var(--fs-xl);

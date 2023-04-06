@@ -1,7 +1,7 @@
 /* eslint-disable no-param-reassign */
 // Import createSlice() from Redux toolkit:
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import axios from '../../axios';
+import axios from '../../api/axios';
 
 // Initial state for Redux store:
 const initialState = {
@@ -13,8 +13,13 @@ const initialState = {
 
 export const fetchClasses = createAsyncThunk(
   'classes/fetchClasses',
-  async () => {
-    const response = await axios.get('items');
+  async (accessToken) => {
+    const config = {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+    };
+    const response = await axios.get('items', config);
     const classes = Object.keys(response.data).map((key) => ({
       id: key,
       ...response.data[key],
@@ -25,8 +30,13 @@ export const fetchClasses = createAsyncThunk(
 
 export const addClass = createAsyncThunk(
   'classes/addClass',
-  async (classItem) => {
-    await axios.post('/items',
+  async (classItem, accessToken) => {
+    const config = {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+    };
+    await axios.post('/items', config,
       {
         name: classItem.name,
         description: classItem.description,

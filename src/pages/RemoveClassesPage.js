@@ -1,9 +1,12 @@
 import React from 'react';
+import Layout from '../layout/Layout';
 
 const RemoveClassesPage = () => (
-  <div>
-    <h1>RemoveClassesPage</h1>
-  </div>
+  <Layout>
+    <main>
+      <h1>RemoveClassesPage</h1>
+    </main>
+  </Layout>
 );
 
 export default RemoveClassesPage;

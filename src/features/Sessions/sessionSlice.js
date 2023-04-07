@@ -154,7 +154,9 @@ const sessionSlice = createSlice({
       .addCase(signUpUser.rejected, (state, action) => {
         state.loading = false;
         state.error = true;
-        state.errorMessages = action.payload.errors;
+        state.errorMessages = Object.entries(action.payload.errors)
+          .filter(([key, value]) => `${key}`[value] !== 'undefined') // has options
+          .map(([key, value]) => `${key}: ${value}`);
       })
       .addCase(loginUser.pending, (state) => {
         state.loading = true;

@@ -23,12 +23,12 @@ function SignUpForm() {
 
   useEffect(() => {
     emailRef?.current?.focus();
-    if (errorMessages.length > 0) {
+    if (errorMessages !== undefined) {
       setErrors(errorMessages);
       dispatch(resetErrorState());
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
   // eslint-disable-next-line consistent-return
   async function handleSubmit(event) {
     event.preventDefault();
@@ -52,13 +52,12 @@ function SignUpForm() {
       password: passwordRef.current.value,
     };
     await dispatch(signUpUser(payload));
-    if (errorMessages.length === 0) {
+    if (errorMessages.length < 0) {
       navigate('/');
     } else {
       setErrors(errorMessages);
     }
   }
-
   return (
     <>
       {errors.length > 0

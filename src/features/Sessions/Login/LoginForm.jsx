@@ -43,7 +43,7 @@ function LoginForm() {
     };
 
     await dispatch(loginUser(payload));
-    if (errorMessages.length === 0) {
+    if (errorMessages.length < 0) {
       navigate('/');
     } else {
       setErrors(errorMessages);

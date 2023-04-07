@@ -60,13 +60,13 @@ function LoginForm() {
       <form onSubmit={handleSubmit}>
         <FormGroup row id="email-group" sx={{ marginTop: '1em' }}>
           <FormControl fullWidth>
-            <InputLabel required htmlFor="email" id="email-label">Email Address</InputLabel>
+            <InputLabel required htmlFor="email" color="success" id="email-label">Email Address</InputLabel>
             <EmailInput inputRef={emailRef} />
           </FormControl>
         </FormGroup>
         <FormGroup row id="password-group" sx={{ marginTop: '1em' }}>
           <FormControl fullWidth>
-            <InputLabel required htmlFor="password" id="password-label">Password</InputLabel>
+            <InputLabel required htmlFor="password" color="success" id="password-label">Password</InputLabel>
             <PasswordInput inputRef={passwordRef} type="password" />
           </FormControl>
         </FormGroup>

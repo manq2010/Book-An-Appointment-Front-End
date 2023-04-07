@@ -11,13 +11,14 @@ function PasswordInput({ inputRef, type }) {
       id={type}
       type={showPassword ? 'text' : 'password'}
       inputRef={inputRef}
+      color="success"
       sx={{
         borderBottom: '1px solid grey',
         '&:hover': {
           borderBottom: '1px solid black',
         },
         '&:focus-within': {
-          borderBottom: '2px solid blue',
+          borderBottom: '2px solid green',
         },
         '& .MuiOutlinedInput-notchedOutline': {
           border: 'none',

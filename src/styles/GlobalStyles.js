@@ -111,7 +111,7 @@ p {
   }
 }
 
-input[type="text"], 
+/* input[type="text"],  */
 input[type="number"]  {
   color: var(--secondary);
   background-color: transparent;

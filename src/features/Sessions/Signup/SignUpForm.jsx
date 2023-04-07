@@ -69,25 +69,25 @@ function SignUpForm() {
       <form onSubmit={handleSubmit}>
         <FormGroup row id="username-group" sx={{ marginTop: '1em' }}>
           <FormControl fullWidth>
-            <InputLabel required htmlFor="username" id="username-label">Username</InputLabel>
+            <InputLabel required htmlFor="username" color="success" id="username-label">Username</InputLabel>
             <Input id="username" type="text" color="success" inputRef={usernameRef} />
           </FormControl>
         </FormGroup>
         <FormGroup row id="email-group" sx={{ marginTop: '1em' }}>
           <FormControl fullWidth>
-            <InputLabel required htmlFor="email" id="email-label">Email Address</InputLabel>
+            <InputLabel required htmlFor="email" color="success" id="email-label">Email Address</InputLabel>
             <EmailInput inputRef={emailRef} />
           </FormControl>
         </FormGroup>
         <FormGroup row id="password-group" sx={{ marginTop: '1em' }}>
           <FormControl fullWidth>
-            <InputLabel required htmlFor="password" id="password-label">Password</InputLabel>
+            <InputLabel required htmlFor="password" color="success" id="password-label">Password</InputLabel>
             <PasswordInput inputRef={passwordRef} type="password" />
           </FormControl>
         </FormGroup>
         <FormGroup row id="password-confirmation-group" sx={{ marginTop: '1em' }}>
           <FormControl fullWidth>
-            <InputLabel required htmlFor="password-confirmation" id="password-confirmation-label">Password Confirmation</InputLabel>
+            <InputLabel required htmlFor="password-confirmation" color="success" id="password-confirmation-label">Password Confirmation</InputLabel>
             <PasswordInput inputRef={passwordConfirmationRef} type="password-confirmation" />
           </FormControl>
         </FormGroup>
@@ -100,7 +100,7 @@ function SignUpForm() {
               type="submit"
               id="submit-button"
             >
-              Login
+              Sign Up
 
             </Button>
           </FormControl>

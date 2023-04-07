@@ -41,9 +41,9 @@ body *:focus {
 main {
   margin: 0;
   width: 100%;
-  /* padding: 0 0 0 15px; */
+   padding: 0 0 0 15px;
 
-  @media (min-width: 320px){
+   @media (min-width: 320px){
     padding: 0 25px;
   }
 
@@ -111,7 +111,7 @@ p {
   }
 }
 
-/* input[type="text"],  */
+/* input[type="text"], */
 input[type="number"]  {
   color: var(--secondary);
   background-color: transparent;
@@ -133,11 +133,11 @@ input[type="number"]  {
   }
 }
 
-input[type="text"]:first-of-type {
+/* input[type="text"]:first-of-type {
   margin-top: 1rem;
-}
+} */
 
-input[type="submit"]{
+/* input[type="submit"]{
     color: var(--white);
     background-color: var(--tertiary);
     border: 1px solid var(--tertiary);
@@ -156,9 +156,8 @@ input[type="submit"]{
       background-color: var(--secondary-tint);
       border: 1px solid var(--secondary-tint);
       outline: none;
-    }
-}
-
+    } 
+}  */
 `;
 
 export default GlobalStyle;

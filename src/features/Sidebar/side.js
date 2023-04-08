@@ -5,9 +5,11 @@ import styled from 'styled-components';
 const SideBarWrapper = styled.div`
 
   position: fixed;
-  display: none;
+  display: flex;
+  height: 100vh;
   color: var(--tertiary-light);
   left: ${(props) => (props.orientation === 'left' ? '0' : 'auto')};
+  flex-direction: column;
 
   @media (min-width: 768px) {
       display: flex;
@@ -17,6 +19,7 @@ const SideBarWrapper = styled.div`
   @media (min-width: 1080px) {
         left: ${(props) => (props.orientation === 'left' ? '40px' : 'auto')};
     }
+
 `;
 
 const Side = ({ children, orientation }) => (

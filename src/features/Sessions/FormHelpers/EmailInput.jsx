@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 function EmailInput({ inputRef }) {
   return (
-    <Input id="email" type="email" inputRef={inputRef} />
+    <Input id="email" type="email" color="success" inputRef={inputRef} />
   );
 }
 

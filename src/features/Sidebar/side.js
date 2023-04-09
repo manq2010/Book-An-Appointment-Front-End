@@ -14,12 +14,14 @@ const SideBarWrapper = styled.div`
   transition: left 0.3s ease-in-out;
   background-color: rgba(128, 128, 128, 0.5);
   @media screen and (min-width: 768px) {
+    background-color: white;
     width: 200px;
     left: -100%;
     left: ${(props) => (props.orientation === 'left' ? '40px' : 'auto')};
   }
   
   @media screen and (min-width: 1080px) {
+    background-color: white;
     left: ${(props) => (props.orientation === 'left' ? '80px' : 'auto')};
   }
 `;

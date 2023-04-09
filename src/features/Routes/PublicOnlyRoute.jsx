@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Navigate, useLocation } from 'react-router-dom';
+import Loading from '../Loading/Loading';
 
 function PublicOnlyRoute({ children }) {
   const accessToken = useSelector((state) => state.session.accessToken);
@@ -13,7 +14,7 @@ function PublicOnlyRoute({ children }) {
   if (!accessToken && !loading) {
     return children;
   } if (loading) {
-    return <p>Loading...</p>;
+    return <Loading isLoading={loading} />;
   } if (accessToken && !loading) {
     return <Navigate to={previousLocation} state={{ from: location }} replace />;
   }

@@ -128,6 +128,41 @@ const Sidebar = () => {
   }
 `;
 
+  const SocialLinks = styled.ul`
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  height: 30vh;
+  transition: all 0.2s ease;
+
+  li {
+    padding: 10px;
+    display: flex;
+    a {
+      i {
+        color: rgb(66,66,66);
+      }
+    }
+
+    &:hover {
+    transform: translateY(-2px);
+    a {
+      i {
+        color: green;
+      }
+    }
+  }
+
+    .links-details {
+        display: inline-block;
+        width: 9rem;
+    }
+  }
+`;
   return (
     <Side orientation="left">
       <Logo src={logo} alt="logo" />
@@ -145,6 +180,28 @@ const Sidebar = () => {
           Logout
         </span>
       </LogoutLink>
+      <SocialLinks>
+        <li>
+          <a href="https://github.com/manq2010/Book-An-Appointment-Front-End">
+            <i className="fa-brands fa-github" />
+          </a>
+        </li>
+        <li>
+          <a href="https://twitter.com/">
+            <i className="fab fa-twitter" />
+          </a>
+        </li>
+        <li>
+          <a href="https://www.instagram.com/">
+            <i className="fab fa-instagram" />
+          </a>
+        </li>
+        <li>
+          <a href="https://www.linkedin.com/">
+            <i className="fab fa-linkedin-in" />
+          </a>
+        </li>
+      </SocialLinks>
     </Side>
   );
 };

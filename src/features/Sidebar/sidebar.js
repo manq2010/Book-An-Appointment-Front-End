@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 import logo from '../../assets/logo.png';
 import Side from './side';
@@ -10,7 +11,6 @@ const Logo = styled.img`
   margin: 0;
   padding: 0;
   margin-top: 1rem;
-  margin-left: 1rem;
   margin-bottom: 1rem;
 `;
 const SideWrapper = styled.ul`
@@ -22,7 +22,7 @@ const SideWrapper = styled.ul`
   padding: 0;
   list-style: none;
   margin-top: 1rem;
-  height: 40vh;
+  height: 30vh;
 
   li {
     padding: 10px;
@@ -83,27 +83,28 @@ const Sidebar = () => {
     borderRadius: isActive ? '0.2rem' : '0',
     transition: 'all 0.2s ease',
   });
+  const userRole = useSelector((state) => state.session.currentUser.role);
+  const content = links
+    .filter((link) => {
+      if (link.text === 'Add Classes' || link.text === 'Remove Classes') {
+        return userRole === 'admin';
+      }
+      return true;
+    })
+    .map((link) => (
+      <li key={link.id}>
+        <NavLink
+          style={navLinkStyles}
+          data-testid={link.text}
+          to={link.path}
+          rel="noreferrer"
+          className="link-item"
+        >
+          <span className="links-details">{link.text}</span>
+        </NavLink>
+      </li>
+    ));
 
-  const content = (
-    <>
-      {links
-  && links.map((link) => (
-    <li key={link.id}>
-      <NavLink
-        style={navLinkStyles}
-        data-testid={link.text}
-        to={link.path}
-        rel="noreferrer"
-        className="link-item"
-      >
-        <span className="links-details">
-          {link.text}
-        </span>
-      </NavLink>
-    </li>
-  ))}
-    </>
-  );
   const LogoutLink = styled(NavLink)`
   margin-top: 20%;
   display: flex;

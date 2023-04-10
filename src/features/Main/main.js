@@ -4,54 +4,52 @@ import { useSelector, useDispatch } from 'react-redux';
 import { fetchClasses } from './mainSlice';
 
 const Section = styled.section`
-
-input[type="text"],
-input[type="number"]  {
-  color: var(--secondary);
-  background-color: transparent;
-  border: 1px solid var(--secondary);
-  border-radius: 1rem;
-  padding: 1rem 1.5rem;
-  font-size: var(--fs-l);
-  line-height: 1;
-  text-decoration: none;
-  margin: 0.5rem 0;
-  width: 100%;
-
-  &:hover,
-  &:focus,
-  &:active {
-    background-color: var(--secondary-tint);
-    outline: none;
-  }
-}
-
-input[type="text"]:first-of-type {
-  margin-top: 1rem;
-} 
-
-.item-heading {
-  margin-top: 1rem;
   display: flex;
-  justify-content: center;
-}
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+  gap: 20px;
 
-table {
-  margin-top: 1rem;
-  width: 100%;
-  text-align: left;
-
-  thead {
-    color: var(--secondary);
+  .item-card {
+    height: 230px;
+    width: 230px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 50%;
+    margin: 10px;
+    box-shadow: 2px 1px 10px #e0e0e0;
+    background-color: #fcfcfc;
+    overflow: hidden;
   }
-
-  tr:nth-of-type(even) {
-      background-color: var(--secondary-tint);
-}
-
-}
-
+  
+  .item-photo-wrapper {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .item-photo {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .item-price {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    font-size: 11px;
+    background-color: #97bf0f;
+    color: #fcfcfc;
+    padding-top: 7px;
+  }  
 `;
+
 const AddClasses = () => {
   const accessToken = useSelector((state) => state.session.accessToken);
   const classItems = useSelector((state) => state.addClassesReducer.classes);
@@ -67,14 +65,18 @@ const AddClasses = () => {
   }, [classesStatus, dispatch]);
 
   const newClassTable = (classItem) => (
-    <tr key={classItem.id}>
-      <td>{classItem.name}</td>
-      <td>{classItem.description}</td>
-      <td>{classItem.price}</td>
-      <td>{classItem.mentor_name}</td>
-      <td>{classItem.duration}</td>
-      <td>{classItem.photo}</td>
-    </tr>
+    <div className="item-card" key={classItem.id}>
+      <div className="item-photo-wrapper">
+        <img className="item-photo" src={classItem.photo} alt="Class" />
+      </div>
+      <div className="item-price">
+        <p>{classItem.name}</p>
+        <p>{classItem.description}</p>
+        <p>{classItem.price}</p>
+        <p>{classItem.mentor_name}</p>
+        <p>{classItem.duration}</p>
+      </div>
+    </div>
   );
 
   let content;
@@ -82,22 +84,10 @@ const AddClasses = () => {
   if (classesStatus === 'succeeded') {
     content = classItems.length > 0 ? (
       <>
-        <h3 className="item-heading">List of my current classes</h3>
-        <table>
-          <thead>
-            <tr>
-              <th>photo</th>
-              <th>Name</th>
-              <th>Description</th>
-              <th>Price</th>
-              <th>Mentor Name</th>
-              <th>Duration</th>
-            </tr>
-          </thead>
-          <tbody>
-            {classItems.map((classItem) => newClassTable(classItem))}
-          </tbody>
-        </table>
+        <h3>List of my current classes</h3>
+        <div>
+          {classItems.map((classItem) => newClassTable(classItem))}
+        </div>
       </>
     ) : ('');
   } else if (classesStatus === 'failed') {
@@ -114,7 +104,6 @@ const AddClasses = () => {
       <div>
         {content}
       </div>
-
     </Section>
   );
 };

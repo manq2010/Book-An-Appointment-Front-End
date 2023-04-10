@@ -196,7 +196,7 @@ const AddClasses = () => {
           <br />
           <input
             type="text"
-            name="mentor-name"
+            name="mentorName"
             value={values.mentorName || ''}
             id="classItemId"
             required

@@ -80,7 +80,6 @@ const AddClasses = () => {
   const classesStatus = useSelector((state) => state.addClassesReducer.status);
   const error = useSelector((state) => state.addClassesReducer.error);
 
-  // Prepare Redux dispatch method:
   const dispatch = useDispatch();
 
   useEffect(() => {

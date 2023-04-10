@@ -21,10 +21,14 @@ const LoadingContainer = styled.div`
   align-items: center;
   height: 100vh;
   width: 100vw;
+  margin: 0 auto;
 `;
 
 const Logo = styled.img`
   animation: ${fadeInOut} 1s linear infinite;
+
+  width: 50px;
+  height: 50px;
 `;
 
 function Loading({ isLoading }) {

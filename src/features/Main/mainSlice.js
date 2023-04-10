@@ -29,7 +29,7 @@ export const fetchClasses = createAsyncThunk(
 
 const mainSlice = createSlice({
   name: 'classes',
-  initialState, // Define initial state
+  initialState,
   extraReducers: (builder) => {
     builder
       .addCase(fetchClasses.pending, (state) => {

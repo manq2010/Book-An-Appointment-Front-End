@@ -128,9 +128,6 @@ const AddClasses = () => {
     );
   }
 
-  // Create form states:
-
-  // Add form onSubmit handler:
   return (
     <Section>
       <div>

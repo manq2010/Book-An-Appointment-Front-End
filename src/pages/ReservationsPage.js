@@ -1,12 +1,14 @@
 import React from 'react';
 import Layout from '../layout/Layout';
 
-const ReservationPage = () => (
+const ReservationsPage = () => (
   <Layout>
     <main>
-      <h1>ReservationPage</h1>
+      <h1>
+        ReservationsPage
+      </h1>
     </main>
   </Layout>
 );
 
-export default ReservationPage;
+export default ReservationsPage;

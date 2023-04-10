@@ -1,9 +1,12 @@
 import React from 'react';
+import Layout from '../layout/Layout';
 
 const DetailsPage = () => (
-  <div>
-    <h1>Details Page</h1>
-  </div>
+  <Layout>
+    <main>
+      <h1>Details Page</h1>
+    </main>
+  </Layout>
 );
 
 export default DetailsPage;

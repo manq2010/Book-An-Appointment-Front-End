@@ -29,7 +29,6 @@ export const fetchClasses = createAsyncThunk(
   },
 );
 
-// Create Redux state slice
 const mainSlice = createSlice({
   name: 'classes',
   initialState, // Define initial state

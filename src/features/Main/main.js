@@ -75,8 +75,6 @@ table {
 
 `;
 const AddClasses = () => {
-//  Get greetings from Redux store:
-//   const classItems = useSelector((state) => state.addClassesReducer);
   const accessToken = useSelector((state) => state.session.accessToken);
   const classItems = useSelector((state) => state.addClassesReducer.classes);
   const classesStatus = useSelector((state) => state.addClassesReducer.status);

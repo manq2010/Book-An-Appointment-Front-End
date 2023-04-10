@@ -1,6 +1,6 @@
 const CREATE_CLASS = 'classStore/clasess/CREATE_CLASSES';
 const GET_CLASS = 'classStore/classes/GET_CLASSES';
-const DELETE_CLASS = 'carStore/classes/DELETE_CLASS';
+const DELETE_CLASS = 'classStore/classes/DELETE_CLASS';
 const BASE_URL = 'http://localhost:3001/api/v1';
 
 const initialState = [];

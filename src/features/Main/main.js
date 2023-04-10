@@ -1,6 +1,9 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { useSelector, useDispatch } from 'react-redux';
+import Slider from 'react-slick';
+import settings from './caroussel';
 import { fetchClasses } from './mainSlice';
 
 const Section = styled.section`
@@ -100,11 +103,13 @@ const AddClasses = () => {
   }
 
   return (
-    <Section>
-      <div>
-        {content}
-      </div>
-    </Section>
+    <Slider {...settings}>
+      <Section>
+        <div>
+          {content}
+        </div>
+      </Section>
+    </Slider>
   );
 };
 

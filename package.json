@@ -29,6 +29,7 @@
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.4.4",
     "react-scripts": "^5.0.1",
+    "react-slick": "^0.29.0",
     "react-test-renderer": "^18.2.0",
     "redux": "^4.2.0",
     "redux-logger": "^3.0.6",

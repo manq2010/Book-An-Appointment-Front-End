@@ -28,28 +28,6 @@ input[type="number"]  {
 
 input[type="text"]:first-of-type {
   margin-top: 1rem;
-}
-
-input[type="submit"]{
-    color: var(--white);
-    background-color: var(--tertiary);
-    border: 1px solid var(--tertiary);
-    padding: 0.75rem 1rem;
-    font-size: var(--fs-l);
-    font-family: var(--font-mono-family);
-    line-height: 1;
-    text-decoration: none;
-    cursor: pointer;
-    width: 100%;
-    margin-top: 0.5rem;
-
-    &:hover,
-    &:focus,
-    &:active {
-      background-color: var(--secondary-tint);
-      border: 1px solid var(--secondary-tint);
-      outline: none;
-    } 
 } 
 
 .item-heading {
@@ -75,14 +53,11 @@ table {
 
 `;
 const AddClasses = () => {
-//  Get greetings from Redux store:
-//   const classItems = useSelector((state) => state.addClassesReducer);
   const accessToken = useSelector((state) => state.session.accessToken);
   const classItems = useSelector((state) => state.addClassesReducer.classes);
   const classesStatus = useSelector((state) => state.addClassesReducer.status);
   const error = useSelector((state) => state.addClassesReducer.error);
 
-  // Prepare Redux dispatch method:
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -96,6 +71,9 @@ const AddClasses = () => {
       <td>{classItem.name}</td>
       <td>{classItem.description}</td>
       <td>{classItem.price}</td>
+      <td>{classItem.mentor_name}</td>
+      <td>{classItem.duration}</td>
+      <td>{classItem.photo}</td>
     </tr>
   );
 
@@ -111,6 +89,8 @@ const AddClasses = () => {
               <th>Name</th>
               <th>Description</th>
               <th>Price</th>
+              <th>Mentor Name</th>
+              <th>Duration</th>
             </tr>
           </thead>
           <tbody>

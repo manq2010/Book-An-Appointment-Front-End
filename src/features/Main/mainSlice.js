@@ -3,7 +3,6 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 // import { useSelector } from 'react-redux';
 import axios from '../../api/axios';
 
-// Initial state for Redux store:
 const initialState = {
   classes: [],
   isLoading: true,

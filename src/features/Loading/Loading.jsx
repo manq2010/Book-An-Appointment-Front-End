@@ -27,8 +27,8 @@ const LoadingContainer = styled.div`
 const Logo = styled.img`
   animation: ${fadeInOut} 1s linear infinite;
 
-  width: 50px;
-  height: 50px;
+  width: 100px;
+  height: 100px;
 `;
 
 function Loading({ isLoading }) {

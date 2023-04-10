@@ -1,11 +1,13 @@
 import React from 'react';
+import Layout from '../layout/Layout';
 import Main from '../features/Main/main';
-import '../styles/main.css';
 
 const MainPage = () => (
-  <div>
-    <Main />
-  </div>
+  <Layout>
+    <main>
+      <Main />
+    </main>
+  </Layout>
 );
 
 export default MainPage;

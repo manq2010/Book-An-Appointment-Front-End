@@ -86,6 +86,7 @@ const AddClasses = () => {
         <table>
           <thead>
             <tr>
+              <th>photo</th>
               <th>Name</th>
               <th>Description</th>
               <th>Price</th>

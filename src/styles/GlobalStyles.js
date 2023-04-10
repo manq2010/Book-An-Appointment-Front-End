@@ -3,6 +3,9 @@ import variables from './variables';
 
 const GlobalStyle = createGlobalStyle`
 ${variables}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600&display=swap');
+
 html {
   box-sizing: border-box;
   scroll-behavior: smooth;
@@ -24,7 +27,7 @@ body {
   margin: 0;
   font-size: var(--fs-l);
   line-height: 1.2;
-  font-family: var(--font-main-family);
+  font-family: 'Poppins', sans-serif;
   
   @media (min-width: 768){
     font-size:  var(--fs-xl);
@@ -38,9 +41,9 @@ body *:focus {
 main {
   margin: 0;
   width: 100%;
-  /* padding: 0 0 0 15px; */
+   padding: 0 0 0 15px;
 
-  @media (min-width: 320px){
+   @media (min-width: 320px){
     padding: 0 25px;
   }
 
@@ -107,55 +110,6 @@ p {
     margin: 0;
   }
 }
-
-input[type="text"], 
-input[type="number"]  {
-  color: var(--secondary);
-  background-color: transparent;
-  border: 1px solid var(--secondary);
-  border-radius: 1rem;
-  padding: 1rem 1.5rem;
-  font-size: var(--fs-l);
-  line-height: 1;
-  text-decoration: none;
-  margin: 0.5rem 0;
-  width: 100%;
-
-  &:hover,
-  &:focus,
-  &:active {
-    background-color: var(--secondary-tint);
-    outline: none;
-    color: var(--white);
-  }
-}
-
-input[type="text"]:first-of-type {
-  margin-top: 1rem;
-}
-
-input[type="submit"]{
-    color: var(--white);
-    background-color: var(--tertiary);
-    border: 1px solid var(--tertiary);
-    padding: 0.75rem 1rem;
-    font-size: var(--fs-l);
-    font-family: var(--font-mono-family);
-    line-height: 1;
-    text-decoration: none;
-    cursor: pointer;
-    width: 100%;
-    margin-top: 0.5rem;
-
-    &:hover,
-    &:focus,
-    &:active {
-      background-color: var(--secondary-tint);
-      border: 1px solid var(--secondary-tint);
-      outline: none;
-    }
-}
-
 `;
 
 export default GlobalStyle;

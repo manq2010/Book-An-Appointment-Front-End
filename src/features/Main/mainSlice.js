@@ -1,5 +1,4 @@
 /* eslint-disable no-param-reassign */
-// Import createSlice() from Redux toolkit:
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 // import { useSelector } from 'react-redux';
 import axios from '../../api/axios';

@@ -9,6 +9,7 @@ const SideBarWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   height: 100vh;
+  width: 100vw;
   color: var(--tertiary-light);
   left: ${(props) => (props.orientation === 'left' ? '0' : 'auto')};
   transition: left 0.3s ease-in-out;
@@ -37,7 +38,7 @@ const Hamburger = styled.button`
   background-color: transparent;
   border: none;
   cursor: pointer;
-  z-index: 1;
+  z-index: 2;
 
   span {
     display: block;

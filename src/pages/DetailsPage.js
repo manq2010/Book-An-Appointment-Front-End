@@ -13,7 +13,7 @@ const DetailsPage = () => {
     name: 'JavaScript',
     description: 'JavaScript is a programming language that conforms to the ECMAScript specification.',
     price: 100,
-    photo: 'https://www.w3schools.com/js/pic_bulbon.gif',
+    photo: 'https://getbutterfly.com/wp-content/uploads/2016/04/logo-js.jpg',
     mentorName: 'John Doe',
     duration: 60,
   };

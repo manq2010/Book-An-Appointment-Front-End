@@ -1,82 +1,93 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import { styled } from '@mui/material/styles';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
 
-const Container = styled.div`
-  display: flex;
-  flex-direction: row;
-`;
+const Container = styled(Box)({
+  display: 'flex',
+  flexDirection: 'row',
+});
 
-const ImageContainer = styled.div`
-  flex: 1;
- height: 80vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  img {
-    width: 80%;
-  }
-`;
+const ImageContainer = styled(Box)({
+  flex: 1,
+  height: '80vh',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  '& img': {
+    height: '50%',
+    objectFit: 'cover',
+  },
+});
 
-const DetailsContainer = styled.div`
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  margin-left: 20px;
-`;
+const DetailsContainer = styled(Box)({
+  flex: 1,
+  display: 'flex',
+  flexDirection: 'column',
+  marginLeft: '20px',
+});
 
-const Title = styled.h2`
-  display: flex;
-  font-size: 24px;
-  margin: 0;
-  padding: 0;
-  justify-content: flex-end;
-  align-items: flex-end;
-`;
+const Title = styled(Typography)({
+  fontSize: '24px',
+  margin: 0,
+  padding: 0,
+  alignSelf: 'flex-end',
+});
 
-const Description = styled.p`
-  font-size: 13px;
-  margin: 20px 0;
-  color: #4f4f4f;
-`;
+const Description = styled(Typography)({
+  fontSize: '13px',
+  margin: '20px 0',
+  color: '#4f4f4f',
+});
 
-const InfoContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin-top: 30px;
-`;
+const InfoContainer = styled(Box)({
+  display: 'flex',
+  flexDirection: 'column',
+  marginTop: '30px',
+});
 
-const InfoRow = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  color: #4f4f4f;
-  justify-content: space-between;
-  background-color: ${(props) => (props.isOdd ? '#d4d4d4' : '#ffffff')};
-  padding: 10px;
-`;
+const InfoRow = styled(Box)(({ theme, isOdd }) => ({
+  display: 'flex',
+  flexDirection: 'row',
+  alignItems: 'center',
+  color: '#4f4f4f',
+  justifyContent: 'space-between',
+  backgroundColor: isOdd ? '#d4d4d4' : '#ffffff',
+  padding: '10px',
+  [theme.breakpoints.down('sm')]: {
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+    padding: '5px',
+  },
+}));
 
-const InfoTitle = styled.span`
-  font-weight: bold;
-  color: #4f4f4f;
-`;
+const InfoTitle = styled(Typography)({
+  fontWeight: 'bold',
+  color: '#4f4f4f',
+});
 
-const ReserveButtonContainer = styled.div`
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
-    flex: 1;
-`;
+const ReserveButtonContainer = styled(Box)({
+  display: 'flex',
+  justifyContent: 'flex-end',
+  alignItems: 'flex-end',
+  flex: 1,
+});
 
-const ReserveButton = styled(Link)`
-  background-color: var(--tertiary);
-  color: #ffffff;
-  padding: 10px 20px;
-  border-radius: 20px;
-  text-decoration: none;
-  align-self: flex-end;
-`;
+const ReserveButton = styled(Button)({
+  backgroundColor: '#119911',
+  color: '#ffffff',
+  padding: '10px 20px',
+  borderRadius: '20px',
+  textDecoration: 'none',
+  alignSelf: 'flex-end',
+  transition: 'background-color 0.3s ease-out',
+  '&:hover': {
+    backgroundColor: '#15b715',
+  },
+});
 
 function Details({ classDetails }) {
   return (
@@ -90,22 +101,22 @@ function Details({ classDetails }) {
         <InfoContainer>
           <InfoRow isOdd>
             <InfoTitle>Mentor:</InfoTitle>
-            <span>{classDetails.mentorName}</span>
+            <Typography>{classDetails.mentorName}</Typography>
           </InfoRow>
           <InfoRow>
             <InfoTitle>Duration:</InfoTitle>
-            <span>{classDetails.duration}</span>
+            <Typography>{classDetails.duration}</Typography>
           </InfoRow>
           <InfoRow isOdd>
             <InfoTitle>Price:</InfoTitle>
-            <span>
+            <Typography>
               $
               {classDetails.price}
-            </span>
+            </Typography>
           </InfoRow>
         </InfoContainer>
         <ReserveButtonContainer>
-          <ReserveButton to="/reservation">Reserve</ReserveButton>
+          <ReserveButton component={Link} to="/reserve">Reserve</ReserveButton>
         </ReserveButtonContainer>
       </DetailsContainer>
     </Container>

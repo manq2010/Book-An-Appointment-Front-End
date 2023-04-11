@@ -1,32 +1,44 @@
 /* eslint-disable no-param-reassign */
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import produce from 'immer';
 import axios from '../../api/axios';
 
 export const fetchReservations = createAsyncThunk(
   'reservations/fetchReservations',
-  async (_, { getState }) => {
-    const { accessToken } = getState().session;
-    const response = await axios.get('/api/reservations', {
+  async (accessToken) => {
+    const config = {
       headers: {
         Authorization: `Bearer ${accessToken}`,
       },
-    });
-    return response.data;
+    };
+    const response = await axios.get('user/reservations', config);
+    const reservations = Object.keys(response.data).map((key) => ({
+      id: key,
+      ...response.data[key],
+    }));
+    return reservations.slice().sort((a, b) => b.id - a.id);
   },
 );
 
 export const addReservation = createAsyncThunk(
   'reservations/addReservation',
-  async ({ getState }) => {
-    const { accessToken } = getState().session;
-    const response = await axios.post('item/reservation', {
+  async (reservationItem) => {
+    const config = {
       headers: {
-        Authorization: `Bearer ${accessToken}`,
+        Authorization: `Bearer ${reservationItem.accessToken}`,
       },
-    });
-    return response.data;
-  }
+    };
+    console.log(reservationItem);
+    await axios.post(
+      'user/reserve',
+      {
+        item_id: reservationItem.item_id,
+        city: reservationItem.city,
+        date: reservationItem.date,
+      },
+      config,
+    );
+    return reservationItem;
+  },
 );
 
 const reservationSlice = createSlice({
@@ -43,17 +55,17 @@ const reservationSlice = createSlice({
         state.status = 'loading';
       })
       .addCase(fetchReservations.fulfilled, (state, action) => {
-        state.status = 'succeeded';
+        state.isLoading = false;
         state.reservations = action.payload;
+        state.status = 'succeeded';
       })
       .addCase(fetchReservations.rejected, (state, action) => {
         state.status = 'failed';
         state.error = action.error.message;
       })
       .addCase(addReservation.fulfilled, (state, action) => {
-        produce(state, (draftState) => {
-          draftState.reservations.push(action.payload);
-        });
+        state.reservations = [state.reservations, action.payload];
+        state.status = 'added';
       });
   },
 });

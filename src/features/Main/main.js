@@ -6,21 +6,31 @@ import SlideshowWithPagination from 'react-slideshow-with-pagination';
 import { fetchClasses } from './mainSlice';
 
 const Section = styled.section`
+
+.item-card{
+  width: 500px;
+  margin-left:10px;
+ 
+}
+
 .item-wrapper {
   display: flex;
-  flex-direction: row;
-  height: 760px;
+  height: 480px;
   overflow: hidden;
-  margin-top:150px;
-  }
+}
+
+.item-wrapper2 {
+    display: flex;
+    height: 480px; 
+    overflow: hidden;
+ }
 
 .item-photo-wrapper {
-  height: 60%;
-  width: 50%;
-  display: flex;
-  justify-content: center;
+  margin-top:100px;
+  margin-left:40px;
+  height: 200px;
+  width: 200px;
   align-items: center;
-  overflow: hidden;
 }
 
 .item-photo {
@@ -37,14 +47,14 @@ const Section = styled.section`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 30px;
+  margin-left:40px
   text-align: center;
 }
 
 .item-name {
   font-size: 20px;
   font-weight: bold;
-  margin-bottom: 10px;
+  margin-top: 10px;
 }
 
 .item-description {
@@ -113,9 +123,14 @@ const MainClasses = () => {
             showDots
             showArrows
             autoplay={false}
-            cardWidth={400}
+            cardMarginX={20}
           >
-            {classPairs.map(([classItem1, classItem2]) => newClassTable(classItem1, classItem2))}
+            {classPairs.map(([classItem1, classItem2]) => (
+              // eslint-disable-next-line react/jsx-key
+              <div className="item-wrapper2">
+                {newClassTable(classItem1, classItem2)}
+              </div>
+            ))}
           </SlideshowWithPagination>
         </div>
       </div>

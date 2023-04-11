@@ -107,6 +107,7 @@ const initialState = {
     id: undefined,
     email: undefined,
     role: undefined,
+    username: undefined,
     createdAt: undefined,
   },
   loading: true,
@@ -196,6 +197,7 @@ const sessionSlice = createSlice({
         state.currentUser = {
           id: action.payload.id,
           email: action.payload.email,
+          username: action.payload.username,
           role: action.payload.role,
           createdAt: action.payload.created_at,
         };
@@ -218,6 +220,7 @@ const sessionSlice = createSlice({
         state.currentUser = {
           id: undefined,
           email: undefined,
+          usernmae: undefined,
           role: undefined,
           createdAt: undefined,
         };

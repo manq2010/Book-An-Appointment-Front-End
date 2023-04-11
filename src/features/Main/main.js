@@ -1,38 +1,38 @@
-/* eslint-disable react/jsx-props-no-spreading */
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { useSelector, useDispatch } from 'react-redux';
-// import Slider from 'react-slick';
-// import settings from './caroussel';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import SlideshowWithPagination from 'react-slideshow-with-pagination';
 import { fetchClasses } from './mainSlice';
+import './styles.css';
 
 const Section = styled.section`
-display: flex;
-flex-wrap: wrap;
-justify-content: center;
-width: 100%;
-padding: 0 10%;
+
+.item-wrapper {
+  display: flex;
+  flex-direction: row;
+  height: 460px;
+  }
 
 .item-card {
-  height: 250px;
-  flex-shrink: 0;
+  height: 460px;
+  width: 200px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
-  border-radius: 50%;
-  margin: 10px;
-  box-shadow: 2px 1px 10px #e0e0e0;
-  background-color: #fcfcfc;
+  margin: 20px;
+  background-color: #fff;
   overflow: hidden;
 }
 
 .item-photo-wrapper {
-  flex: 1;
+  height: 60%;
+  width: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 10px;
+  overflow: hidden;
 }
 
 .item-photo {
@@ -42,16 +42,33 @@ padding: 0 10%;
   object-fit: cover;
 }
 
-.item-price {
-  width: 100%;
-  height: 100px;
+.item-details {
+  height: 50%;
+  width: 60%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  font-size: 11px;
-  background-color: #97bf0f;
-  color: #fcfcfc;
-  padding-top: 10px;
-} 
+  align-items: center;
+  padding: 30px;
+  text-align: center;
+}
+
+.item-name {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.item-description {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.item-price {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}  
 `;
 
 const AddClasses = () => {
@@ -69,29 +86,36 @@ const AddClasses = () => {
   }, [classesStatus, dispatch]);
 
   const newClassTable = (classItem) => (
-    <div className="item-card" key={classItem.id}>
+    <React.Fragment className="item-card" key={classItem.id}>
       <div className="item-photo-wrapper">
         <img className="item-photo" src={classItem.photo} alt="Class" />
       </div>
-      <div className="item-all">
-        <p>{classItem.name}</p>
-        <p>{classItem.description}</p>
-        {/* <p>{classItem.price}</p>
-        <p>{classItem.mentor_name}</p>
-        <p>{classItem.duration}</p> */}
+      <div className="item-details">
+        <div className="item-name">{classItem.name}</div>
+        <div className="item-description">{classItem.description}</div>
+        <div className="item-price">{classItem.price}</div>
+        <div className="item-mentor">{classItem.mentor_name}</div>
+        <div className="item-duration">{classItem.duration}</div>
       </div>
-    </div>
+    </React.Fragment>
   );
-
   let content;
 
   if (classesStatus === 'succeeded') {
     content = classItems.length > 0 ? (
-      <>
-        <h3>List of my current classes</h3>
-        <div>
+      < >
+        <SlideshowWithPagination
+          showNumbers
+          showDots
+          showArrows
+          numberOfCardsPerScreen={2}
+          showOneCardForWidthLower="sm"
+          slideshowContainerMaxWidth="100px"
+          cardWidth="100px"
+          cardHeight={100}
+        >
           {classItems.map((classItem) => newClassTable(classItem))}
-        </div>
+        </SlideshowWithPagination>
       </>
     ) : ('');
   } else if (classesStatus === 'failed') {
@@ -105,7 +129,7 @@ const AddClasses = () => {
 
   return (
     <Section>
-      <div>
+      <div className="item-wrapper">
         {content}
       </div>
     </Section>

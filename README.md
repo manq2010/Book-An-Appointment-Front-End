@@ -55,15 +55,16 @@ After you're finished please remove all the comments and instructions!
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 Hello React Front-end <a name="about-project"></a>
+# 📖 Coders Hub<a name="about-project"></a>
 
-> Sets up the front end part of the hello-rails app.
+> Coders-Hub application allows user to reverse different online classes depending on their preferences. They are the assigned a mentor for each course and also get to choose how long that want to participate on the course.
 
 ## 🛠 Built With <a name="built-with"></a>
 - HTML
 - CSS
 - JS
 - React
+- Redux
 
 ### Tech Stack <a name="tech-stack"></a>
 
@@ -73,6 +74,7 @@ After you're finished please remove all the comments and instructions!
     <li><a href="https://www.w3schools.com/js/">JavaScript</a></li>
     <li><a href="https://www.w3schools.com/html/">HTML</a></li>
     <li><a href="https://www.w3schools.com/css/">CSS</a></li>
+    <li><a href="https://www.w3schools.com/react/">React/Redux</a></li>
   </ul>
 </details>
 
@@ -149,6 +151,13 @@ You can deploy this project using:
 - GitHub: [@manq2010](https://github.com/manq2010/)
 - Twitter: [@mancoba_c](https://twitter.com/mancoba_c/)
 - LinkedIn: [mancobasihlongonyane](https://linkedin.com/in/mancobasihlongonyane/)
+
+👤 **Ibrahim Suhail Al-Yousefi**
+
+- GitHub: [@cluab](https://github.com/Cluab)
+- Twitter: [@cluab122](https://twitter.com/cluab122)
+- LinkedIn: [Ebrahim Al-Yousefi](https://www.linkedin.com/in/ebrahim-alyousefi/)
+- Instagram: [@27.i.b](https://www.instagram.com/27.i.b/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

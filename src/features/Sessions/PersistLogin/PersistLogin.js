@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Outlet } from 'react-router-dom';
 import { refreshAccessToken } from '../sessionSlice';
+import Loading from '../../Loading/Loading';
 
 function PersistLogin() {
   const loading = useSelector((state) => state.session.loading);
@@ -25,7 +26,7 @@ function PersistLogin() {
 
   return (
     <>
-      {loading ? <p>Loading...</p> : <Outlet />}
+      {loading ? <Loading isLoading={loading} /> : <Outlet />}
     </>
   );
 }

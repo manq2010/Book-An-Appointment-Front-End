@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { useSelector, useDispatch } from 'react-redux';
+import { Card, Row, Col } from 'react-bootstrap';
 import { fetchReservations } from './reservationSlice';
 
 const Section = styled.section`
@@ -9,17 +10,19 @@ const Section = styled.section`
 
 const ReservedClasses = () => {
   const accessToken = useSelector((state) => state.session.accessToken);
-  const reservations = useSelector((state) => state.reservations.reservations);
-  const reservationsStatus = useSelector((state) => state.reservations.status);
-  const error = useSelector((state) => state.reservations.error);
+  const reservations = useSelector(
+    (state) => state.reservationReducer.reservations,
+  );
+  const reservationsStatus = useSelector(
+    (state) => state.reservationReducer.status,
+  );
+  const error = useSelector((state) => state.reservationReducer.error);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (accessToken) {
-      dispatch(fetchReservations(accessToken));
-    }
-  }, [accessToken, dispatch]);
+    dispatch(fetchReservations(accessToken));
+  }, []);
 
   let content;
 
@@ -29,24 +32,52 @@ const ReservedClasses = () => {
     content = reservations.length > 0 ? (
       <>
         <h3 className="item-heading">My Reservations</h3>
-        <table>
-          <thead>
-            <tr>
-              <th>Class Name</th>
-              <th>Date</th>
-              <th>Time</th>
-            </tr>
-          </thead>
-          <tbody>
-            {reservations.map((reservation) => (
-              <tr key={reservation.id}>
-                <td>{reservation.class_name}</td>
-                <td>{reservation.date}</td>
-                <td>{reservation.time}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+        <Row>
+          {reservations.map((reservation) => (
+            <Col md={4} key={reservation.id}>
+              <Card>
+                <Card.Body>
+                  <Card.Title>{reservation.class_name}</Card.Title>
+                  <Card.Text>
+                    Description:
+                    {' '}
+                    {reservation.description}
+                  </Card.Text>
+                  <Card.Text>
+                    Price:
+                    {' '}
+                    {reservation.price}
+                  </Card.Text>
+                  <Card.Text>
+                    Mentor Name:
+                    {' '}
+                    {reservation.mentor_name}
+                  </Card.Text>
+                  <Card.Text>
+                    Duration:
+                    {' '}
+                    {reservation.duration}
+                  </Card.Text>
+                  <Card.Text>
+                    Date:
+                    {' '}
+                    {reservation.date}
+                  </Card.Text>
+                  <Card.Text>
+                    City:
+                    {' '}
+                    {reservation.city}
+                  </Card.Text>
+                  <Card.Text>
+                    Time:
+                    {' '}
+                    {reservation.time}
+                  </Card.Text>
+                </Card.Body>
+              </Card>
+            </Col>
+          ))}
+        </Row>
       </>
     ) : (
       <p>You have no reservations yet.</p>

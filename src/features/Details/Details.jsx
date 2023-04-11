@@ -10,8 +10,12 @@ const Container = styled.div`
 
 const ImageContainer = styled.div`
   flex: 1;
+ height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   img {
-    width: 100%;
+    width: 80%;
   }
 `;
 
@@ -23,40 +27,53 @@ const DetailsContainer = styled.div`
 `;
 
 const Title = styled.h2`
+  display: flex;
   font-size: 24px;
   margin: 0;
   padding: 0;
+  justify-content: flex-end;
+  align-items: flex-end;
 `;
 
 const Description = styled.p`
-  font-size: 16px;
+  font-size: 13px;
   margin: 20px 0;
+  color: #4f4f4f;
 `;
 
 const InfoContainer = styled.div`
   display: flex;
   flex-direction: column;
+  margin-top: 30px;
 `;
 
 const InfoRow = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  color: #4f4f4f;
   justify-content: space-between;
-  background-color: ${(props) => (props.isOdd ? '#f7f7f7' : '#ffffff')};
+  background-color: ${(props) => (props.isOdd ? '#d4d4d4' : '#ffffff')};
   padding: 10px;
-  margin-bottom: 5px;
 `;
 
 const InfoTitle = styled.span`
   font-weight: bold;
+  color: #4f4f4f;
+`;
+
+const ReserveButtonContainer = styled.div`
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    flex: 1;
 `;
 
 const ReserveButton = styled(Link)`
-  background-color: #007bff;
+  background-color: var(--tertiary);
   color: #ffffff;
   padding: 10px 20px;
-  border-radius: 5px;
+  border-radius: 20px;
   text-decoration: none;
   align-self: flex-end;
 `;
@@ -73,7 +90,7 @@ function Details({ classDetails }) {
         <InfoContainer>
           <InfoRow isOdd>
             <InfoTitle>Mentor:</InfoTitle>
-            <span>{classDetails.mentor_name}</span>
+            <span>{classDetails.mentorName}</span>
           </InfoRow>
           <InfoRow>
             <InfoTitle>Duration:</InfoTitle>
@@ -81,10 +98,15 @@ function Details({ classDetails }) {
           </InfoRow>
           <InfoRow isOdd>
             <InfoTitle>Price:</InfoTitle>
-            <span>{classDetails.price}</span>
+            <span>
+              $
+              {classDetails.price}
+            </span>
           </InfoRow>
         </InfoContainer>
-        <ReserveButton to="/reservation">Reserve</ReserveButton>
+        <ReserveButtonContainer>
+          <ReserveButton to="/reservation">Reserve</ReserveButton>
+        </ReserveButtonContainer>
       </DetailsContainer>
     </Container>
   );
@@ -95,7 +117,7 @@ Details.propTypes = {
     id: PropTypes.number,
     name: PropTypes.string,
     description: PropTypes.string,
-    mentor_name: PropTypes.string,
+    mentorName: PropTypes.string,
     duration: PropTypes.string,
     price: PropTypes.string,
     photo: PropTypes.string,

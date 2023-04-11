@@ -45,10 +45,12 @@ main {
 
    @media (min-width: 320px){
     padding: 0 25px;
+    margin: 30px
   }
 
   @media (min-width: 480px){
     padding: 0 50px;
+    margin: 30px;
   }
 
   @media (min-width: 768px){

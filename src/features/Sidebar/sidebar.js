@@ -23,7 +23,7 @@ const SideWrapper = styled.ul`
   list-style: none;
   margin-top: 1rem;
   height: 30vh;
-
+  z-index: 2;
   li {
     padding: 10px;
     font-size: 18px;

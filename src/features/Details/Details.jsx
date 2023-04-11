@@ -7,19 +7,31 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 
 const Container = styled(Box)({
+  paddingTop: '25px',
   display: 'flex',
+  height: '100vh',
   flexDirection: 'row',
+  '@media (max-width: 600px)': {
+    flexDirection: 'column',
+    width: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
 });
 
 const ImageContainer = styled(Box)({
   flex: 1,
-  height: '80vh',
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
   '& img': {
-    height: '50%',
     objectFit: 'cover',
+    maxWidth: '100%',
+    maxHeight: '50vh',
+    '@media (max-width: 600px)': {
+      maxHeight: '40vh',
+      maxWidth: '60%',
+    },
   },
 });
 
@@ -27,20 +39,33 @@ const DetailsContainer = styled(Box)({
   flex: 1,
   display: 'flex',
   flexDirection: 'column',
+  marginTop: '30px',
   marginLeft: '20px',
+  '@media (max-width: 600px)': {
+    maxWidth: '80%',
+    marginLeft: 0,
+  },
 });
 
 const Title = styled(Typography)({
   fontSize: '24px',
+  fontWeight: 'bold',
+  color: '#4f4f4f',
   margin: 0,
   padding: 0,
   alignSelf: 'flex-end',
+  '@media (max-width: 600px)': {
+    alignSelf: 'flex-start',
+  },
 });
 
 const Description = styled(Typography)({
   fontSize: '13px',
   margin: '20px 0',
   color: '#4f4f4f',
+  '@media (max-width: 600px)': {
+    fontSize: '15px',
+  },
 });
 
 const InfoContainer = styled(Box)({
@@ -74,19 +99,26 @@ const ReserveButtonContainer = styled(Box)({
   justifyContent: 'flex-end',
   alignItems: 'flex-end',
   flex: 1,
+  '@media (max-width: 600px)': {
+    justifyContent: 'center',
+    marginTop: '20px',
+  },
 });
 
 const ReserveButton = styled(Button)({
   backgroundColor: '#119911',
   color: '#ffffff',
   padding: '10px 20px',
+  marginBottom: '3rem',
   borderRadius: '20px',
   textDecoration: 'none',
   alignSelf: 'flex-end',
+  index: 0,
   transition: 'background-color 0.3s ease-out',
   '&:hover': {
     backgroundColor: '#15b715',
   },
+
 });
 
 function Details({ classDetails }) {

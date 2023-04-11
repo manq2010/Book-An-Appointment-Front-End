@@ -41,16 +41,15 @@ body *:focus {
 main {
   margin: 0;
   width: 100%;
+  height: 100%;
    padding: 0 0 0 15px;
 
    @media (min-width: 320px){
     padding: 0 25px;
-    margin: 30px
   }
 
   @media (min-width: 480px){
     padding: 0 50px;
-    margin: 30px;
   }
 
   @media (min-width: 768px){

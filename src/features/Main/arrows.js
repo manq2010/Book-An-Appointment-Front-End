@@ -59,7 +59,7 @@ export function SamplePrevArrow(props) {
       role="button"
       tabIndex={0}
     >
-      Nex
+      Next
 
     </div>
   );

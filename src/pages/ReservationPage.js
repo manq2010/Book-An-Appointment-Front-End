@@ -1,6 +1,6 @@
 import React from 'react';
+import ReservedClasses from '../features/Reservation/ReservedClasses';
 import Layout from '../layout/Layout';
-import ReservedClasses from '../features/Reservation/Reservations';
 
 const ReservationPage = () => (
   <Layout>

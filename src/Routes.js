@@ -21,7 +21,7 @@ const AppRoutes = () => (
   <Routes>
     <Route element={<PersistLogin />}>
       <Route exact path="/" element={<PrivateRoute><MainPage /></PrivateRoute>} />
-      <Route exact path="/details/:symbol" element={<PrivateRoute><DetailsPage /></PrivateRoute>} />
+      <Route exact path="/class/:symbol" element={<PrivateRoute><DetailsPage /></PrivateRoute>} />
       <Route exact path="/reservation" element={<PrivateRoute><ReservationPage /></PrivateRoute>} />
       <Route exact path="/reservations" element={<PrivateRoute><ReservationsPage /></PrivateRoute>} />
       <Route exact path="/add-classes" element={<AdminOnlyRoute><AddClassesPage /></AdminOnlyRoute>} />

@@ -65,6 +65,11 @@ const Section = styled.section`
   .slogan-text {
     padding: 3rem;
   }
+  .my-hr {
+    border: none;
+    border-top: 5px solid white;
+    margin: 10px 0;
+  }
 
   @media screen and (max-width: 768px) {
     padding: 20px;
@@ -162,6 +167,7 @@ const ReservationForm = () => {
           {' '}
           {currentUser.username}
         </h3>
+        <hr className="my-hr" />
         <h3>
           Our platform is a ideal Place where Learners can find and hire
           experienced mentors to learn coding.

@@ -9,7 +9,7 @@ const Section = styled.section`
 
 .item-card{
   width: 500px;
-  margin-left:10px;
+  margin-left:0px;
  
 }
 
@@ -27,7 +27,7 @@ const Section = styled.section`
 
 .item-photo-wrapper {
   margin-top:100px;
-  margin-left:40px;
+  margin-left:30px;
   height: 200px;
   width: 200px;
   align-items: center;
@@ -42,12 +42,8 @@ const Section = styled.section`
 
 .item-details {
   height: 50%;
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-left:40px
+  width: 60%;
+  margin-left:30px
   text-align: center;
 }
 
@@ -55,11 +51,15 @@ const Section = styled.section`
   font-size: 20px;
   font-weight: bold;
   margin-top: 10px;
+  text-align: center;
 }
 
 .item-description {
   font-size: 14px;
   margin-bottom: 10px;
+  text-align: center;
+  width: 80%;
+  height: 50%;
 }
 
 `;

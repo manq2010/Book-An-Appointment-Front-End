@@ -1,10 +1,7 @@
 /* eslint-disable no-param-reassign */
-// Import createSlice() from Redux toolkit:
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-// import { useSelector } from 'react-redux';
 import axios from '../../api/axios';
 
-// Initial state for Redux store:
 const initialState = {
   classes: [],
   isLoading: true,
@@ -37,24 +34,34 @@ export const addClass = createAsyncThunk(
         Authorization: `Bearer ${classItem.accessToken}`,
       },
     };
-    await axios.post('items',
-      {
-        name: classItem.name,
-        description: classItem.description,
-        photo: classItem.photo,
-        price: classItem.price,
-        mentor_name: classItem.mentorName,
-        duration: classItem.duration,
-      },
-      config);
+    await axios.post('items', {
+      name: classItem.name,
+      description: classItem.description,
+      photo: classItem.photo,
+      price: classItem.price,
+      mentor_name: classItem.mentorName,
+      duration: classItem.duration,
+    }, config);
     return classItem;
   },
 );
 
-// Create Redux state slice
+export const deleteClass = createAsyncThunk(
+  'classes/deleteClass',
+  async ({ accessToken, id }) => {
+    const config = {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+    };
+    await axios.delete(`items/${id}`, config);
+    return id;
+  },
+);
+
 const addClassSlice = createSlice({
   name: 'classes',
-  initialState, // Define initial state
+  initialState,
   extraReducers: (builder) => {
     builder
       .addCase(fetchClasses.pending, (state) => {
@@ -78,6 +85,13 @@ const addClassSlice = createSlice({
       })
       .addCase(addClass.pending, (state) => {
         state.status = 'adding';
+      })
+      .addCase(deleteClass.fulfilled, (state, action) => {
+        state.classes = state.classes.filter((classItem) => classItem.id !== action.payload);
+        state.status = 'removed';
+      })
+      .addCase(deleteClass.pending, (state) => {
+        state.status = 'removing';
       });
   },
 });

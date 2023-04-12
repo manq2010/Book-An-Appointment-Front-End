@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { useSelector, useDispatch } from 'react-redux';
 import { Card, Row, Col } from 'react-bootstrap';
 import { fetchReservations } from './reservationSlice';
+import { fetchClasses } from '../AddClasses/addClassesSlice';
 
 const Section = styled.section`
   /* Styles here */
@@ -10,6 +11,17 @@ const Section = styled.section`
 
 const ReservedClasses = () => {
   const accessToken = useSelector((state) => state.session.accessToken);
+  const classItems = useSelector((state) => state.addClassesReducer.classes);
+  const classesStatus = useSelector((state) => state.addClassesReducer.status);
+
+  // Prepare Redux dispatch method:
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (classesStatus === 'idle') {
+      dispatch(fetchClasses(accessToken));
+    }
+  }, [classesStatus, dispatch]);
   const reservations = useSelector(
     (state) => state.reservationReducer.reservations,
   );
@@ -17,8 +29,6 @@ const ReservedClasses = () => {
     (state) => state.reservationReducer.status,
   );
   const error = useSelector((state) => state.reservationReducer.error);
-
-  const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchReservations(accessToken));
@@ -33,50 +43,53 @@ const ReservedClasses = () => {
       <>
         <h3 className="item-heading">My Reservations</h3>
         <Row>
-          {reservations.map((reservation) => (
-            <Col md={4} key={reservation.id}>
-              <Card>
-                <Card.Body>
-                  <Card.Title>{reservation.class_name}</Card.Title>
-                  <Card.Text>
-                    Description:
-                    {' '}
-                    {reservation.description}
-                  </Card.Text>
-                  <Card.Text>
-                    Price:
-                    {' '}
-                    {reservation.price}
-                  </Card.Text>
-                  <Card.Text>
-                    Mentor Name:
-                    {' '}
-                    {reservation.mentor_name}
-                  </Card.Text>
-                  <Card.Text>
-                    Duration:
-                    {' '}
-                    {reservation.duration}
-                  </Card.Text>
-                  <Card.Text>
-                    Date:
-                    {' '}
-                    {reservation.date}
-                  </Card.Text>
-                  <Card.Text>
-                    City:
-                    {' '}
-                    {reservation.city}
-                  </Card.Text>
-                  <Card.Text>
-                    Time:
-                    {' '}
-                    {reservation.time}
-                  </Card.Text>
-                </Card.Body>
-              </Card>
-            </Col>
-          ))}
+          {reservations.map((reservation) => {
+            const classItem = classItems.find(
+              (item) => item.id === reservation.item_id,
+            );
+            if (classItem) {
+              return (
+                <Col md={4} key={reservation.id}>
+                  <Card>
+                    <Card.Body>
+                      <Card.Title>{classItem.name}</Card.Title>
+                      <Card.Text>
+                        Description:
+                        {' '}
+                        {classItem.description}
+                      </Card.Text>
+                      <Card.Text>
+                        Price:
+                        {' '}
+                        {classItem.price}
+                      </Card.Text>
+                      <Card.Text>
+                        Mentor Name:
+                        {' '}
+                        {classItem.mentor_name}
+                      </Card.Text>
+                      <Card.Text>
+                        Duration:
+                        {' '}
+                        {classItem.duration}
+                      </Card.Text>
+                      <Card.Text>
+                        Date:
+                        {' '}
+                        {reservation.date}
+                      </Card.Text>
+                      <Card.Text>
+                        City:
+                        {' '}
+                        {reservation.city}
+                      </Card.Text>
+                    </Card.Body>
+                  </Card>
+                </Col>
+              );
+            }
+            return null;
+          })}
         </Row>
       </>
     ) : (

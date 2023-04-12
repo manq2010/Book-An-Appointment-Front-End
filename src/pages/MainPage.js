@@ -1,10 +1,11 @@
 import React from 'react';
 import Layout from '../layout/Layout';
+import Main from '../features/Main/main';
 
 const MainPage = () => (
   <Layout>
     <main>
-      <h1>Main Page</h1>
+      <Main />
     </main>
   </Layout>
 );

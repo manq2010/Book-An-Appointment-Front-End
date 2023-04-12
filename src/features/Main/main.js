@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { useSelector, useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import SlideshowWithPagination from 'react-slideshow-with-pagination';
 import { fetchClasses } from './mainSlice';
@@ -154,17 +155,19 @@ const MainClasses = () => {
   }, [classesStatus, dispatch]);
 
   const newClassTable = (classItem) => (
-    <React.Fragment key={classItem.id}>
-      <div className="item-card">
-        <div className="item-photo-wrapper">
-          <img className="item-photo" src={classItem.photo} alt="Class" />
+    <Link to={`/class/${classItem.id}`}>
+      <React.Fragment key={classItem.id}>
+        <div className="item-card">
+          <div className="item-photo-wrapper">
+            <img className="item-photo" src={classItem.photo} alt="Class" />
+          </div>
+          <div className="item-details">
+            <h3 className="item-name">{classItem.name}</h3>
+            <p className="item-description">{classItem.description}</p>
+          </div>
         </div>
-        <div className="item-details">
-          <h3 className="item-name">{classItem.name}</h3>
-          <p className="item-description">{classItem.description}</p>
-        </div>
-      </div>
-    </React.Fragment>
+      </React.Fragment>
+    </Link>
   );
 
   let content;

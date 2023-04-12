@@ -3,7 +3,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 // import { useSelector } from 'react-redux';
 import axios from '../../api/axios';
 
-const initialState = {
+export const initialState = {
   classes: [],
   isLoading: true,
   status: 'idle',
@@ -27,7 +27,7 @@ export const fetchClasses = createAsyncThunk(
   },
 );
 
-const mainSlice = createSlice({
+export const mainSlice = createSlice({
   name: 'classes',
   initialState,
   extraReducers: (builder) => {

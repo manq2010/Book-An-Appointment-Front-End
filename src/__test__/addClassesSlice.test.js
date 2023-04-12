@@ -3,7 +3,7 @@ import addClassReducer, {
 } from '../features/AddClasses/addClassesSlice';
 
 describe('addClassSlice', () => {
-  describe('reducer', () => {
+  describe('addClass cases', () => {
     it('should handle initial state', () => {
       expect(addClassReducer(undefined, { type: 'unknown' })).toEqual(initialState);
     });

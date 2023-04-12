@@ -14,7 +14,7 @@ const SideBarWrapper = styled.div`
   left: ${(props) => (props.orientation === 'left' ? '0' : 'auto')};
   transition: left 0.3s ease-in-out;
   background-color: white;
-  z-index: 1;
+  z-index: 5;
 
   @media screen and (min-width: 768px) {
     background-color: white;
@@ -42,7 +42,7 @@ const Hamburger = styled.button`
   background-color: transparent;
   border: none;
   cursor: pointer;
-  z-index: 2;
+  z-index: 6;
 
   span {
     display: block;

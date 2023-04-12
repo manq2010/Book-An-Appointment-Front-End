@@ -16,7 +16,6 @@ const Logo = styled.img`
 const SideWrapper = styled.ul`
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: flex-end;
   margin: 0;
   padding: 0;
@@ -41,7 +40,6 @@ const SideWrapper = styled.ul`
 
     .links-details {
         display: inline-block;
-        width: 9rem;
     }
   }
 `;

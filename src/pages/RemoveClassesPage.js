@@ -1,10 +1,11 @@
 import React from 'react';
+import DeleteItem from '../features/DeleteClass/DeleteItem';
 import Layout from '../layout/Layout';
 
 const RemoveClassesPage = () => (
   <Layout>
     <main>
-      <h1>RemoveClassesPage</h1>
+      <DeleteItem />
     </main>
   </Layout>
 );

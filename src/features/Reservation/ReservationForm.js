@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import React, { useState, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -17,7 +18,14 @@ const BackButton = () => {
   const navigate = useNavigate();
   return (
     <>
-      <button type="button" className="btn btn-primary" onClick={() => navigate(-1)}>Back</button>
+      <button
+        type="button"
+        className="btn border border-white border-2 bg-white px-4 py-2 mt-2 text-center
+"
+        onClick={() => navigate(-1)}
+      >
+        Back
+      </button>
     </>
   );
 };
@@ -29,7 +37,7 @@ const Section = styled.section`
   background: linear-gradient(
       90deg,
       rgba(2, 0, 36, 1) 0%,
-      rgba(2, 251, 43, 0.6167060574229692) 0%
+      rgba(2, 251, 43, 0.90) 0%
     ),
     url('https://miro.medium.com/v2/resize:fit:10204/0*FZtDbymV965OvyZC.jpg')
       no-repeat;
@@ -42,6 +50,22 @@ const Section = styled.section`
     justify-content: space-between;
   }
 
+  h3 {
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bolder;
+    color: #595df7;
+  }
+
+  h4 {
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+  }
+  .slogan-text {
+    padding: 3rem;
+  }
+
   @media screen and (max-width: 768px) {
     padding: 20px;
     .nav-button {
@@ -51,10 +75,18 @@ const Section = styled.section`
 `;
 
 const FormContainer = styled.div`
-  margin: 0 auto;
-  padding: 50px;
+  display: flex;
+  justify-content: center;
+  align-item: center;
+
+  .reserve-btn {
+    display: flex;
+    justify-content: center;
+    align-item: center;
+  }
 
   @media screen and (max-width: 768px) {
+    grid-template-columns: 1fr;
     padding: 20px;
   }
 `;
@@ -109,25 +141,29 @@ const ReservationForm = () => {
           rel="noreferrer"
           className="link-item"
         >
-          <button type="button" className=" btn btn-primary links-details">
+          <button
+            type="button"
+            className=" btn btn border border-white border-2 bg-white px-4 py-2 mt-2 text-center"
+          >
             Logout
           </button>
         </div>
       </div>
-      <h3>
-        Our platform is a ideal Place where Learners can find and hire
-        experienced mentors to learn coding.
-      </h3>
+      <div className="slogan-text">
+        <h3>
+          Hello
+          {' '}
+          {currentUser.username}
+        </h3>
+        <h3>
+          Our platform is a ideal Place where Learners can find and hire
+          experienced mentors to learn coding.
+        </h3>
+      </div>
+      <h4>Reserve Your Class Today!</h4>
+
       <FormContainer>
-        <h4>Reserve Your Class Today!</h4>
         <form onSubmit={handleSubmit}>
-          <TextField
-            label="Username"
-            value={currentUser.username}
-            InputProps={{ readOnly: true }}
-            margin="normal"
-            fullWidth
-          />
           <TextField
             label="Date"
             type="date"
@@ -164,9 +200,11 @@ const ReservationForm = () => {
               ))}
             </Select>
           </FormControl>
-          <Button variant="contained" color="primary" type="submit">
-            Reserve
-          </Button>
+          <div className="reserve-btn">
+            <Button variant="contained" color="primary" type="submit">
+              Reserve
+            </Button>
+          </div>
         </form>
       </FormContainer>
     </Section>

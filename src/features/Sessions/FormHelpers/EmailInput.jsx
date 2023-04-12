@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { Input } from '@mui/material';
 import PropTypes from 'prop-types';

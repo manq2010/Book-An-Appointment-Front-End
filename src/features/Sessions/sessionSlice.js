@@ -106,6 +106,7 @@ const initialState = {
   currentUser: {
     id: undefined,
     email: undefined,
+    username: undefined,
     role: undefined,
     username: undefined,
     createdAt: undefined,
@@ -183,7 +184,9 @@ const sessionSlice = createSlice({
       .addCase(loginUser.rejected, (state) => {
         state.loading = false;
         state.error = true;
-        state.errorMessages = ['Invalid credentials. Did you enter them correctly?'];
+        state.errorMessages = [
+          'Invalid credentials. Did you enter them correctly?',
+        ];
       })
       .addCase(refreshAccessToken.pending, (state) => {
         state.loading = true;

@@ -1,0 +1,19 @@
+body {
+  overflow-y: scroll;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 25px;
+  color: rgb(97, 93, 93);
+  font-weight: 600;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+@media screen and (min-width: 800px) {
+  .delete-container {
+    width: 80%;
+    margin-right: auto;
+    margin-left: 18%;
+  }
+}

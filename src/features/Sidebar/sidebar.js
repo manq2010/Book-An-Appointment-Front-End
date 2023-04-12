@@ -56,12 +56,12 @@ const Sidebar = () => {
     {
       id: 2,
       path: '/reservation',
-      text: 'Add Reservation',
+      text: 'Show Reservations',
     },
     {
       id: 3,
       path: '/reservations',
-      text: 'Reservations',
+      text: 'Add Reservations',
     },
     {
       id: 4,

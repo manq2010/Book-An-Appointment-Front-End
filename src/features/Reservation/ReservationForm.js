@@ -37,7 +37,7 @@ const Section = styled.section`
   background: linear-gradient(
       90deg,
       rgba(2, 0, 36, 1) 0%,
-      rgba(2, 251, 43, 0.90) 0%
+      rgba(46, 165, 65, 0.9) 0%
     ),
     url('https://miro.medium.com/v2/resize:fit:10204/0*FZtDbymV965OvyZC.jpg')
       no-repeat;
@@ -55,7 +55,7 @@ const Section = styled.section`
     text-align: center;
     font-size: 2rem;
     font-weight: bolder;
-    color: #595df7;
+    color: black;
   }
 
   h4 {
@@ -78,6 +78,12 @@ const FormContainer = styled.div`
   display: flex;
   justify-content: center;
   align-item: center;
+
+  .text-field{
+    border:none;
+    background: white;
+    border-radius: 5px;
+  }
 
   .reserve-btn {
     display: flex;
@@ -102,6 +108,7 @@ const ReservationForm = () => {
     city: '',
     item_id: '',
   });
+  const navigate = useNavigate();
 
   const handleSubmit = useCallback(
     async (e) => {
@@ -114,16 +121,16 @@ const ReservationForm = () => {
           item_id,
           accessToken,
         };
-        console.log(reservation);
         await dispatch(addReservation(reservation));
         setValues({
           date: '',
           city: '',
           item_id: '',
         });
+        navigate('/reservation');
       }
     },
-    [values, dispatch, accessToken],
+    [values, dispatch, accessToken, navigate],
   );
 
   const handleChange = (e) => {
@@ -165,7 +172,6 @@ const ReservationForm = () => {
       <FormContainer>
         <form onSubmit={handleSubmit}>
           <TextField
-            label="Date"
             type="date"
             name="date"
             value={values.date}
@@ -173,6 +179,7 @@ const ReservationForm = () => {
             margin="normal"
             fullWidth
             required
+            className="text-field"
           />
           <TextField
             label="City"
@@ -183,8 +190,14 @@ const ReservationForm = () => {
             margin="normal"
             fullWidth
             required
+            className="text-field"
           />
-          <FormControl fullWidth margin="normal" required>
+          <FormControl
+            className="text-field"
+            fullWidth
+            margin="normal"
+            required
+          >
             <InputLabel id="class-label">Select a class</InputLabel>
             <Select
               labelId="class-label"
@@ -201,7 +214,7 @@ const ReservationForm = () => {
             </Select>
           </FormControl>
           <div className="reserve-btn">
-            <Button variant="contained" color="primary" type="submit">
+            <Button variant="contained" color="success" type="submit">
               Reserve
             </Button>
           </div>

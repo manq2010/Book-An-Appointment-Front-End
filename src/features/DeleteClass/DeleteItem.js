@@ -20,12 +20,7 @@ const DeleteItem = () => {
   }, [classesStatus, dispatch, accessToken]);
 
   const handleDelete = useCallback(async (id) => {
-    try {
-      console.log(id);
-      await dispatch(deleteClass({ accessToken, id }));
-    } catch (error) {
-      console.log(error);
-    }
+    await dispatch(deleteClass({ accessToken, id }));
   }, [dispatch, accessToken]);
 
   return (

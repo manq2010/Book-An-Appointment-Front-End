@@ -133,7 +133,7 @@ function Details({ classDetails }) {
         <InfoContainer>
           <InfoRow isOdd>
             <InfoTitle>Mentor:</InfoTitle>
-            <Typography>{classDetails.mentorName}</Typography>
+            <Typography>{classDetails.mentor_name}</Typography>
           </InfoRow>
           <InfoRow>
             <InfoTitle>Duration:</InfoTitle>
@@ -160,7 +160,7 @@ Details.propTypes = {
     id: PropTypes.number,
     name: PropTypes.string,
     description: PropTypes.string,
-    mentorName: PropTypes.string,
+    mentor_name: PropTypes.string,
     duration: PropTypes.string,
     price: PropTypes.string,
     photo: PropTypes.string,

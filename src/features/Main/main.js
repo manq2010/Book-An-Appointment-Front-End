@@ -181,8 +181,8 @@ const MainClasses = () => {
         <SlideshowWithPagination
           // style={{ color: 'green' }}
           option={classItems}
-          // showNumbers
-          // showDots
+          showNumbers
+          showDots
           showArrows
           autoplay={false}
           // cardMarginX={100}

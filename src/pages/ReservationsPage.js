@@ -1,15 +1,24 @@
 import React from 'react';
+import { useMediaQuery } from '@mui/material';
 import Layout from '../layout/Layout';
 import ReservationForm from '../features/Reservation/ReservationForm';
 
-const ReservationsPage = () => (
-  <Layout>
-    <main>
-      <h1>
+const ReservationsPage = () => {
+  const isMobile = useMediaQuery('(max-width: 768px)');
+
+  return (
+    <>
+      {isMobile ? (
+        <Layout>
+          <main>
+            <ReservationForm />
+          </main>
+        </Layout>
+      ) : (
         <ReservationForm />
-      </h1>
-    </main>
-  </Layout>
-);
+      )}
+    </>
+  );
+};
 
 export default ReservationsPage;

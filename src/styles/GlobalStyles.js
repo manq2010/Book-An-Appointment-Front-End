@@ -50,6 +50,7 @@ main {
 
   @media (min-width: 480px){
     padding: 0 50px;
+    padding-top: 30px
   }
 
   @media (min-width: 768px){

@@ -87,6 +87,7 @@ const addClassSlice = createSlice({
         state.status = 'adding';
       })
       .addCase(deleteClass.fulfilled, (state, action) => {
+        console.log(action.payload);
         state.classes = state.classes.filter((classItem) => classItem.id !== action.payload);
         state.status = 'removed';
       })

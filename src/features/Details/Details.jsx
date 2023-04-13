@@ -148,7 +148,7 @@ function Details({ classDetails }) {
           </InfoRow>
         </InfoContainer>
         <ReserveButtonContainer>
-          <ReserveButton component={Link} to="/reserve">Reserve</ReserveButton>
+          <ReserveButton component={Link} to={`/class/${classDetails.id}/reservations`}>Reserve</ReserveButton>
         </ReserveButtonContainer>
       </DetailsContainer>
     </Container>

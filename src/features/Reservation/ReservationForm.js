@@ -1,7 +1,7 @@
 /* eslint-disable camelcase */
 import React, { useState, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -55,12 +55,16 @@ const Section = styled.section`
     text-align: center;
     font-size: 2rem;
     font-weight: bolder;
-    color: black;
+    color: black; 
+    @media screen and (max-width: 768px) {
+      font-size: 1.2rem;
+    }
   }
 
   h4 {
     font-family: 'Poppins', sans-serif;
     text-align: center;
+
   }
   .slogan-text {
     padding: 3rem;
@@ -102,11 +106,15 @@ const FormContainer = styled.div`
   }
 `;
 
-const ReservationForm = () => {
+const ReservationForm = ({ class: classProp } = {}) => {
   const dispatch = useDispatch();
-  const classes = useSelector((state) => state.addClassesReducer.classes);
+  const classes = useSelector((state) => state.mainReducer.classes);
   const currentUser = useSelector((state) => state.session.currentUser);
   const accessToken = useSelector((state) => state.session.accessToken);
+  let currentClass;
+  if (classProp) {
+    currentClass = classes.find((item) => item.id.toString() === classProp);
+  }
 
   const [values, setValues] = useState({
     date: '',
@@ -211,13 +219,24 @@ const ReservationForm = () => {
               value={values.item_id}
               onChange={handleChange}
             >
-              <MenuItem value="">Select a class</MenuItem>
-              {classes.map((classItem) => (
-                <MenuItem key={classItem.id} value={classItem.id}>
-                  {classItem.name}
+              {currentClass ? (
+                <MenuItem key={currentClass.id} value={currentClass.id}>
+                  {currentClass.name}
                 </MenuItem>
-              ))}
+              ) : (
+                [
+                  <MenuItem key="" value="">
+                    Select a class
+                  </MenuItem>,
+                  ...classes.map((classItem) => (
+                    <MenuItem key={classItem.id} value={classItem.id}>
+                      {classItem.name}
+                    </MenuItem>
+                  )),
+                ]
+              )}
             </Select>
+
           </FormControl>
           <div className="reserve-btn">
             <Button variant="contained" color="success" type="submit">
@@ -230,9 +249,13 @@ const ReservationForm = () => {
   );
 };
 
-// ReservationForm.propTypes = {
-//   // eslint-disable-next-line react/require-default-props, react/no-typos
-//   classId: PropTypes.number.Optional,
-// };
+ReservationForm.defaultProps = {
+  class: null,
+};
+ReservationForm.propTypes = {
+  class: PropTypes.shape({
+    id: PropTypes.number,
+  }),
+};
 
 export default ReservationForm;

@@ -105,7 +105,13 @@ const MainClasses = () => {
 
   let content;
 
-  if (classesStatus === 'succeeded') {
+  if (classesStatus) {
+    // const classPairs = [];
+    // for (let i = 0; i < classItems.length; i += 2) {
+    //   const classItem1 = classItems[i];
+    //   const classItem2 = classItems[i + 1] || null;
+    //   classPairs.push([classItem1, classItem2]);
+    // }
     content = classItems.length > 0 ? (
       <div className="item-wrapper" style={{ position: 'relative', alignItems: 'center' }}>
         <SlideshowWithPagination

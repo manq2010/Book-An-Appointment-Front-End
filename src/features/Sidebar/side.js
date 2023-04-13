@@ -99,7 +99,7 @@ const Side = ({ children, orientation }) => {
         <span />
         <span />
       </Hamburger>
-      <SideBarWrapper orientation={orientation} style={{ left: isMobileNavOpen || window.innerWidth >= 768 ? 0 : '-100%' }}>
+      <SideBarWrapper orientation={orientation} style={{ left: isMobileNavOpen || window.innerWidth >= 768 ? 0 : '-200%' }}>
         {children}
       </SideBarWrapper>
     </>

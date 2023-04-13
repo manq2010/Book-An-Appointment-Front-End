@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { useSelector, useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 import {
   Row, Col, Button,
 } from 'react-bootstrap';
@@ -138,52 +139,59 @@ const ReservedClasses = () => {
                     return (
                       <Col className="mb-4" key={reservation.id}>
                         <div className="card-container">
-                          <div className="card-box">
-                            <div className="image-container">
-                              <img
-                                src={
-                                  classItem.photo
-                                    ? classItem.photo
-                                    : 'https://placeholder.com/placeholder.jpg'
-                                }
-                                alt={classItem.name}
-                              />
-                            </div>
-                            <div className="text-container">
-                              <h3>{classItem.name}</h3>
-                              <p>{classItem.description}</p>
-                              <p>
-                                Price:
-                                {' '}
-                                {classItem.price}
-                              </p>
-                              <p>
-                                Mentor Name:
-                                {' '}
-                                {classItem.mentor_name}
-                              </p>
-                              <p>
-                                Duration:
-                                {' '}
-                                {classItem.duration}
-                              </p>
-                              <p>
-                                Date:
-                                {' '}
-                                {reservation.date}
-                              </p>
-                              <p>
-                                City:
-                                {' '}
-                                {reservation.city}
-                              </p>
-                              <div className="d-flex justify-content-center mt-3">
-                                <Button className="btn btn-danger">
-                                  Remove Reservation
-                                </Button>
+                          <Link to={`/class/${classItem.id}`}>
+                            <div className="card-box">
+                              <div className="image-container">
+                                <img
+                                  src={
+                                    classItem.photo
+                                      ? classItem.photo
+                                      : 'https://placeholder.com/placeholder.jpg'
+                                  }
+                                  alt={classItem.name}
+                                />
+                              </div>
+                              <div className="text-container">
+                                <h3>{classItem.name}</h3>
+                                <p>
+                                  About The Class:
+                                  {' '}
+                                  {classItem.description.slice(0, 40)}
+                                  ...
+                                </p>
+                                <p>
+                                  Price:
+                                  {' '}
+                                  {classItem.price}
+                                </p>
+                                <p>
+                                  Mentor Name:
+                                  {' '}
+                                  {classItem.mentor_name}
+                                </p>
+                                <p>
+                                  Duration:
+                                  {' '}
+                                  {classItem.duration}
+                                </p>
+                                <p>
+                                  Date:
+                                  {' '}
+                                  {reservation.date}
+                                </p>
+                                <p>
+                                  City:
+                                  {' '}
+                                  {reservation.city}
+                                </p>
+                                <div className="d-flex justify-content-center mt-3">
+                                  <Button className="btn btn-danger">
+                                    Remove Reservation
+                                  </Button>
+                                </div>
                               </div>
                             </div>
-                          </div>
+                          </Link>
                         </div>
                       </Col>
                     );

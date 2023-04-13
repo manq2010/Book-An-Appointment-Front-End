@@ -203,7 +203,7 @@ password: password
 
 #### NB: Ensure the `rails db:seed` was run from above for the admin role to work. 
 
-If you want to login as normal user, follow the sign-up precess.
+If you want to login as normal user, follow the sign-up process.
 
 #### NB: If you not able to sign-in, kindly refresh page and try to sign-in again
 

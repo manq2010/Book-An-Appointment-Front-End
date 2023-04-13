@@ -223,7 +223,7 @@ You can deploy this project using:
 
 <!-- AUTHORS -->
 
-## 👥 Authors <a name="authors"></a>
+# Authors <a name="authors"></a>
 
 👤 **Mancoba Sihlongonyane**
 
@@ -257,6 +257,19 @@ You can deploy this project using:
 - twitter: [BabouOmar3](https://twitter.com/BabouOmar3)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+## Kanban board
+
+👉 [Kanban board link](https://github.com/Cluab/Book-An-Appointment-Back-End/projects/1)
+
+👉 [Kanban board Development link](https://github.com/Cluab/Book-An-Appointment-Back-End/issues/21)
+
+👉 This project was authored by <a href="#authors">Four contributors</a> as described in the the Authors section bellow.
+
+👉 Please use this [link](https://github.com/manq2010/Book-An-Appointment-Front-End) to go to the front-end part of this project.
+
+
 
 <!-- FUTURE FEATURES -->
 

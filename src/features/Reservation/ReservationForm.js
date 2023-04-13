@@ -111,7 +111,6 @@ const ReservationForm = ({ class: classProp } = {}) => {
   if (classProp) {
     currentClass = classes.find((item) => item.id.toString() === classProp);
   }
-  console.log(currentClass);
 
   const [values, setValues] = useState({
     date: '',

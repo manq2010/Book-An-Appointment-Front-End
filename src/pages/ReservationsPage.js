@@ -12,14 +12,14 @@ const ReservationsPage = () => {
     <>
       {isMobile ? (
         <Layout>
-          <main>
+          <>
             {id ? <ReservationForm class={id} /> : <ReservationForm />}
-          </main>
+          </>
         </Layout>
       ) : (
-        <main>
+        <>
           {id ? <ReservationForm class={id} /> : <ReservationForm />}
-        </main>
+        </>
       )}
     </>
   );

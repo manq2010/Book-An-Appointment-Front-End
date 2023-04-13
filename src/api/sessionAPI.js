@@ -5,11 +5,7 @@ const SIGNUP_URL = '/users';
 const LOGOUT_URL = '/oauth/revoke';
 const CURRENT_USER_URL = '/users/me';
 
-export async function createUserWithEmailAndPassword(
-  email,
-  password,
-  username,
-) {
+export const createUserWithEmailAndPassword = async (email, password, username) => {
   const data = {
     email,
     password,
@@ -17,16 +13,15 @@ export async function createUserWithEmailAndPassword(
     username,
   };
 
-  return axios
-    .post(SIGNUP_URL, data)
-    .then((response) => response.data)
-    .catch((error) => error.response.data);
-}
+  try {
+    const response = await axios.post(SIGNUP_URL, data);
+    return response.data;
+  } catch (error) {
+    return error.response.data;
+  }
+};
 
-export async function loginWithEmailAndPassword(
-  email,
-  password,
-) {
+export const loginWithEmailAndPassword = async (email, password) => {
   const data = {
     grant_type: 'password',
     email,
@@ -35,26 +30,30 @@ export async function loginWithEmailAndPassword(
     client_secret: process.env.REACT_APP_CLIENT_SECRET,
   };
 
-  return axios
-    .post(LOGIN_URL, data)
-    .then((response) => response.data)
-    .catch((error) => error.response.data);
-}
+  try {
+    const response = await axios.post(LOGIN_URL, data);
+    return response.data;
+  } catch (error) {
+    return error.response.data;
+  }
+};
 
-export async function logoutUserWithToken(token) {
+export const logoutUserWithToken = async (token) => {
   const data = {
     token,
     client_id: process.env.REACT_APP_CLIENT_ID,
     client_secret: process.env.REACT_APP_CLIENT_SECRET,
   };
 
-  return axios
-    .post(LOGOUT_URL, data)
-    .then((response) => response.data)
-    .catch((error) => error.response.data);
-}
+  try {
+    const response = await axios.post(LOGOUT_URL, data);
+    return response.data;
+  } catch (error) {
+    return error.response.data;
+  }
+};
 
-export async function requestAccessTokenWithRefreshToken(refreshToken) {
+export const requestAccessTokenWithRefreshToken = async (refreshToken) => {
   const data = {
     grant_type: 'refresh_token',
     refresh_token: refreshToken,
@@ -62,21 +61,25 @@ export async function requestAccessTokenWithRefreshToken(refreshToken) {
     client_secret: process.env.REACT_APP_CLIENT_SECRET,
   };
 
-  return axios
-    .post(LOGIN_URL, data)
-    .then((response) => response.data)
-    .catch((error) => error.response.data);
-}
+  try {
+    const response = await axios.post(LOGIN_URL, data);
+    return response.data;
+  } catch (error) {
+    return error.response.data;
+  }
+};
 
-export async function getCurrentUser(accessToken) {
+export const getCurrentUser = async (accessToken) => {
   const config = {
     headers: {
       Authorization: `Bearer ${accessToken}`,
     },
   };
 
-  return axios
-    .get(CURRENT_USER_URL, config)
-    .then((response) => response.data)
-    .catch((error) => error.response.data);
-}
+  try {
+    const response = await axios.get(CURRENT_USER_URL, config);
+    return response.data;
+  } catch (error) {
+    return error.response.data;
+  }
+};

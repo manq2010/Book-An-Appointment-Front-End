@@ -2,7 +2,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from '../../api/axios';
 
-const initialState = {
+export const initialState = {
   classes: [],
   isLoading: true,
   status: 'idle',
@@ -87,6 +87,7 @@ const addClassSlice = createSlice({
         state.status = 'adding';
       })
       .addCase(deleteClass.fulfilled, (state, action) => {
+        console.log(action.payload);
         state.classes = state.classes.filter((classItem) => classItem.id !== action.payload);
         state.status = 'removed';
       })

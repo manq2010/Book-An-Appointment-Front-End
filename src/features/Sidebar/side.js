@@ -14,16 +14,20 @@ const SideBarWrapper = styled.div`
   left: ${(props) => (props.orientation === 'left' ? '0' : 'auto')};
   transition: left 0.3s ease-in-out;
   background-color: white;
+  z-index: 5;
+
   @media screen and (min-width: 768px) {
     background-color: white;
     width: 200px;
     left: -100%;
     left: ${(props) => (props.orientation === 'left' ? '40px' : 'auto')};
+    z-index: 1;
   }
   
   @media screen and (min-width: 1080px) {
     background-color: white;
     left: ${(props) => (props.orientation === 'left' ? '80px' : 'auto')};
+    z-index: 1;
   }
 `;
 
@@ -38,7 +42,7 @@ const Hamburger = styled.button`
   background-color: transparent;
   border: none;
   cursor: pointer;
-  z-index: 2;
+  z-index: 6;
 
   span {
     display: block;
@@ -95,7 +99,7 @@ const Side = ({ children, orientation }) => {
         <span />
         <span />
       </Hamburger>
-      <SideBarWrapper orientation={orientation} style={{ left: isMobileNavOpen || window.innerWidth >= 768 ? 0 : '-100%' }}>
+      <SideBarWrapper orientation={orientation} style={{ left: isMobileNavOpen || window.innerWidth >= 768 ? 0 : '-200%' }}>
         {children}
       </SideBarWrapper>
     </>

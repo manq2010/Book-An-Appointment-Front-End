@@ -222,6 +222,7 @@ const sessionSlice = createSlice({
         state.currentUser = {
           id: undefined,
           email: undefined,
+          usernmae: undefined,
           role: undefined,
           createdAt: undefined,
         };

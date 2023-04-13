@@ -125,43 +125,44 @@ In order to run this project you need:
 
 ### Setup
 
-Clone this repository by using the command line : 
+👉 Clone this repository by using the command line : 
 - `git clone https://github.com/manq2010/Book-An-Appointment-Front-End`
 
-Clone back end repository by using the command line : 
+👉 Clone back end repository by using the command line : 
 - `git clone https://github.com/Cluab/Book-An-Appointment-Back-End`
 
-Add the `.env` file to the root folder of the current repo (Front-End)
+👉 Add the `.env` file to the root folder of the current repo (Front-End)
 
-Add the following lines on the `.env` file
+👉 Add the following lines on the `.env` file
 
 ```js
 REACT_APP_BACKEND="http://localhost:3000/api/v1"
 REACT_APP_CLIENT_ID="tqiRUMtQta0eEw6lp3X9iPQK8n5ZlS7OmiKLK0eHJoI"
 REACT_APP_CLIENT_SECRET="sAaKljs__17vKbKoVT8G_Jsw-dMrOP8N4i_aPBEjcLQ"
 ```
-### NB: Using the above details on your .env file will not work as each devices needs its unique `REACT_APP_CLIENT_ID` and `REACT_APP_CLIENT_SECRET` details, use the step below to generate for your device
+#### NB: Using the above details on your `.env` file will not work as each devices needs its unique `REACT_APP_CLIENT_ID` and `REACT_APP_CLIENT_SECRET` details, use the step below to generate for your device
 
-On the Back-End Repo, run the seed file by using the command line :
+👉 On the Back-End Repo, run the seed file by using the command line :
 - `rails db:seed`
 
-Open rails console by using the command line from the Back-End repo cloned above:
+👉 Open rails console by using the command line from the Back-End repo cloned above:
 - `rails c`
 
-Run the following code on the rails console :
+👉 Run the following code on the rails console :
 - `Doorkeeper::Application.find_by(name: 'React')`
 
-Replace the `REACT_APP_CLIENT_ID` on the `.env` file with the id shown on the console :
+👉 Replace the `REACT_APP_CLIENT_ID` on the `.env` file with the id shown on the console :
 
 `uid: "tqiRUMtQta0eEw6lp3X9iPQK8n5ZlS7OmiKLK0eHJoI"`
 
-Run the following code on the rails console :
+👉 Run the following code on the rails console :
 - `Doorkeeper::Application.find_by(name: 'React').secret`
 
-Replace the `REACT_APP_CLIENT_SECRET` on the `.env` file with the id shown on the console :
+👉 Replace the `REACT_APP_CLIENT_SECRET` on the `.env` file with the id shown on the console :
 
 `=> "sAaKljs__17vKbKoVT8G_Jsw-dMrOP8N4i_aPBEjcLQ"`
 
+#### NB: The `.env` file should look similar to the example above once your unique id and secret key are generated 
 
 ### Install
 
@@ -202,7 +203,7 @@ password: password
 
 If you want to login as normal user, follow the sign-up precess.
 
-#### NB: If you not able to sign-in, kindly refresh page and try to sign-in
+#### NB: If you not able to sign-in, kindly refresh page and try to sign-in again
 
 ### Run tests
 

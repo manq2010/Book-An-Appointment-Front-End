@@ -16,14 +16,13 @@ const Logo = styled.img`
 const SideWrapper = styled.ul`
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: flex-end;
   margin: 0;
   padding: 0;
   list-style: none;
   margin-top: 1rem;
   height: 30vh;
-
+  z-index: 2;
   li {
     padding: 10px;
     font-size: 18px;
@@ -41,7 +40,6 @@ const SideWrapper = styled.ul`
 
     .links-details {
         display: inline-block;
-        width: 9rem;
     }
   }
 `;

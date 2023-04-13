@@ -40,6 +40,7 @@ const SideWrapper = styled.ul`
 
     .links-details {
         display: inline-block;
+        width: 100%;
     }
   }
 `;

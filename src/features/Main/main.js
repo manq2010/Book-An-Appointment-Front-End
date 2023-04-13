@@ -172,7 +172,7 @@ const MainClasses = () => {
 
   let content;
 
-  if (classesStatus === 'succeeded') {
+  if (classesStatus) {
     // const classPairs = [];
     // for (let i = 0; i < classItems.length; i += 2) {
     //   const classItem1 = classItems[i];

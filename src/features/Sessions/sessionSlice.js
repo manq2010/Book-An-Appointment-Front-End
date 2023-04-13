@@ -108,7 +108,6 @@ const initialState = {
     email: undefined,
     username: undefined,
     role: undefined,
-    username: undefined,
     createdAt: undefined,
   },
   loading: true,

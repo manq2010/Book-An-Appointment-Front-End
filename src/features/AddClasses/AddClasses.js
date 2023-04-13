@@ -100,7 +100,7 @@ const AddClasses = () => {
 
   let content;
 
-  if (classesStatus === 'succeeded') {
+  if (classesStatus) {
     content = classItems.length > 0 ? (
       <>
         <h3 className="item-heading">List of my current classes</h3>

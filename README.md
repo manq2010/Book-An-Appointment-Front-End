@@ -225,6 +225,7 @@ Give a ⭐️ if you like this project!
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
 - Thank you [Microverse](https://www.microverse.org/) for the project
+- Original design by [Murat Korkmaz](https://www.behance.net/muratk)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -247,6 +248,6 @@ Give a ⭐️ if you like this project!
 
 ## 📝 License <a name="license"></a>
 
-This project is [MIT](./LICENSE.md) licensed.
+This project is [MIT](./LICENCE.md) licensed.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>

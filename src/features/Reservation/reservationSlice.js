@@ -27,7 +27,6 @@ export const addReservation = createAsyncThunk(
         Authorization: `Bearer ${reservationItem.accessToken}`,
       },
     };
-    console.log(reservationItem);
     await axios.post(
       'user/reserve',
       {

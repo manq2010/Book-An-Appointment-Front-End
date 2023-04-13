@@ -1,7 +1,7 @@
 /* eslint-disable camelcase */
 import React, { useState, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -102,16 +102,21 @@ const FormContainer = styled.div`
   }
 `;
 
-const ReservationForm = () => {
+const ReservationForm = ({ class: classProp } = {}) => {
   const dispatch = useDispatch();
-  const classes = useSelector((state) => state.addClassesReducer.classes);
+  const classes = useSelector((state) => state.mainReducer.classes);
   const currentUser = useSelector((state) => state.session.currentUser);
   const accessToken = useSelector((state) => state.session.accessToken);
+  let currentClass;
+  if (classProp) {
+    currentClass = classes.find((item) => item.id.toString() === classProp);
+  }
+  console.log(currentClass);
 
   const [values, setValues] = useState({
     date: '',
     city: '',
-    item_id: '',
+    item_id: classProp ? classProp.id : '',
   });
   const navigate = useNavigate();
 
@@ -208,16 +213,25 @@ const ReservationForm = () => {
             <Select
               labelId="class-label"
               name="item_id"
-              value={values.item_id}
+              value={currentClass ? currentClass.id : ''}
               onChange={handleChange}
             >
-              <MenuItem value="">Select a class</MenuItem>
-              {classes.map((classItem) => (
-                <MenuItem key={classItem.id} value={classItem.id}>
-                  {classItem.name}
+              {currentClass ? (
+                <MenuItem key={currentClass.id} value={currentClass.id}>
+                  {currentClass.name}
                 </MenuItem>
-              ))}
+              ) : (
+                <>
+                  <MenuItem value="">Select a class</MenuItem>
+                  {classes.map((classItem) => (
+                    <MenuItem key={classItem.id} value={classItem.id}>
+                      {classItem.name}
+                    </MenuItem>
+                  ))}
+                </>
+              )}
             </Select>
+
           </FormControl>
           <div className="reserve-btn">
             <Button variant="contained" color="success" type="submit">
@@ -230,9 +244,13 @@ const ReservationForm = () => {
   );
 };
 
-// ReservationForm.propTypes = {
-//   // eslint-disable-next-line react/require-default-props, react/no-typos
-//   classId: PropTypes.number.Optional,
-// };
+ReservationForm.defaultProps = {
+  class: null,
+};
+ReservationForm.propTypes = {
+  class: PropTypes.shape({
+    id: PropTypes.number,
+  }),
+};
 
 export default ReservationForm;

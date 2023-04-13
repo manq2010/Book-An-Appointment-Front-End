@@ -58,6 +58,12 @@ After you're finished please remove all the comments and instructions!
 # 📖 Coders Hub<a name="about-project"></a>
 
 > Coders-Hub application allows user to reverse different online classes depending on their preferences. They are the assigned a mentor for each course and also get to choose how long that want to participate on the course.
+<div align="center">
+
+  <img src="./src/assets/devices.png" alt="logo" width="800" height="auto" />
+  <br/>
+
+</div>
 
 ## 🛠 Built With <a name="built-with"></a>
 - HTML
@@ -96,7 +102,8 @@ After you're finished please remove all the comments and instructions!
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo Link](https://github.com/manq2010/hello-react-front-end)
+- [Live Demo Link](https://codershub-8u8o.onrender.com/)
+
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>

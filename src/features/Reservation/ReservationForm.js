@@ -116,7 +116,7 @@ const ReservationForm = ({ class: classProp } = {}) => {
   const [values, setValues] = useState({
     date: '',
     city: '',
-    item_id: classProp ? classProp.id : '',
+    item_id: '',
   });
   const navigate = useNavigate();
 
@@ -213,7 +213,7 @@ const ReservationForm = ({ class: classProp } = {}) => {
             <Select
               labelId="class-label"
               name="item_id"
-              value={currentClass ? currentClass.id : ''}
+              value={values.item_id}
               onChange={handleChange}
             >
               {currentClass ? (
@@ -221,14 +221,16 @@ const ReservationForm = ({ class: classProp } = {}) => {
                   {currentClass.name}
                 </MenuItem>
               ) : (
-                <>
-                  <MenuItem value="">Select a class</MenuItem>
-                  {classes.map((classItem) => (
+                [
+                  <MenuItem key="" value="">
+                    Select a class
+                  </MenuItem>,
+                  ...classes.map((classItem) => (
                     <MenuItem key={classItem.id} value={classItem.id}>
                       {classItem.name}
                     </MenuItem>
-                  ))}
-                </>
+                  )),
+                ]
               )}
             </Select>
 

@@ -55,12 +55,16 @@ const Section = styled.section`
     text-align: center;
     font-size: 2rem;
     font-weight: bolder;
-    color: black;
+    color: black; 
+    @media screen and (max-width: 768px) {
+      font-size: 1.2rem;
+    }
   }
 
   h4 {
     font-family: 'Poppins', sans-serif;
     text-align: center;
+
   }
   .slogan-text {
     padding: 3rem;

@@ -267,7 +267,7 @@ You can deploy this project using:
 
 👉 This project was authored by <a href="#authors">Four contributors</a> as described in the the Authors section bellow.
 
-👉 Please use this [link](https://github.com/manq2010/Book-An-Appointment-Front-End) to go to the front-end part of this project.
+👉 Please use this [link](https://github.com/Cluab/Book-An-Appointment-Back-End) to go to the back-end part of this project.
 
 
 
